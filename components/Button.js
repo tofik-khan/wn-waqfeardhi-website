@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-    background-color: ${ props => props.type === "primary" ? "#607EEB" : "#EEEEEE" };
+    background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#EEEEEE" };
 
     /* Size */
     height: 50px;
@@ -11,26 +11,26 @@ const StyledButton = styled.button`
     padding: 0px 50px;
 
     /* Border */
-    border: ${ props => props.type === "primary" ? "unset" : "solid 1px #AAAAAA" };
+    border: ${ props => props.variant === "primary" ? "unset" : "solid 1px #AAAAAA" };
     border-radius: 4px;
 
     /* Text */
-    color: ${ props => props.type === "primary" ? "white" : "#6D6D6D" } ;
+    color: ${ props => props.variant === "primary" ? "white" : "#6D6D6D" } ;
     font-weight: bold;
     font-size: 16px;
 
     /* States */
     &:hover {
-        background-color: ${ props => props.type === "primary" ? "#2B4BBA" : "#CBCBCB" };
+        background-color: ${ props => props.variant === "primary" ? "#2B4BBA" : "#CBCBCB" };
         cursor: pointer;
     }
     &:focus {
-        background-color: ${ props => props.type === "primary" ? "#607EEB" : "#CBCBCB" }
-        border: 2px solid ${ props => props.type === "primary" ? "#2B4BBA" : "#757575" };
-        box-shadow: 0px 0px 4px 1px ${ props => props.type === "primary" ? "#2B4BBA" : "#595959" };
+        background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#CBCBCB" }
+        border: 2px solid ${ props => props.variant === "primary" ? "#2B4BBA" : "#757575" };
+        box-shadow: 0px 0px 4px 1px ${ props => props.variant === "primary" ? "#2B4BBA" : "#595959" };
     }
 `
 
-export default function Button ({type, children}) {
-    return <StyledButton type={type}>{children}</StyledButton>
+export default function Button ({variant, children}) {
+    return <StyledButton variant={variant}>{children}</StyledButton>
 }

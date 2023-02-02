@@ -4,9 +4,9 @@ export default function Page() {
     return (
     <>
         <h1>Hello, Next.js!</h1>
-        <Button type="primary">Test Button</Button>
+        <Button variant="primary">Test Button</Button>
         <br />
         <br />
-        <Button type="secondary">Test Button</Button>
+        <Button variant="secondary">Test Button</Button>
     </>);
 }
