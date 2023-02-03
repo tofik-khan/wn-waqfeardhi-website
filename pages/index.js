@@ -1,6 +1,10 @@
+import { Star } from "react-bootstrap-icons";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
-import { FiletypePdf } from "react-bootstrap-icons";
+
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function Page() {
     return (
@@ -13,9 +17,10 @@ export default function Page() {
         <br />
         <br />
         <Chip></Chip>
+        <Chip icon={<Star fill="currentColor" />} iconPosition="right"></Chip>
         <br />
         <br />
         <Chip variant="solid"></Chip>
-        <Chip variant="solid" icon={<FiletypePdf fill="currentColor" size={20} />} iconPosition="right"></Chip>
+        <Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip>
     </>);
 }
