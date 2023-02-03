@@ -1,4 +1,5 @@
 import Button from "../components/Button";
+import Chip from "../components/Chip";
 
 export default function Page() {
     return (
@@ -8,5 +9,11 @@ export default function Page() {
         <br />
         <br />
         <Button variant="secondary">Test Button</Button>
+        <br />
+        <br />
+        <Chip></Chip>
+        <br />
+        <br />
+        <Chip variant="solid"></Chip>
     </>);
 }
