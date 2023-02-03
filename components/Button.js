@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const StyledButton = styled.button`
+
     background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#EEEEEE" };
 
     /* Size */
     height: 50px;
-    min-width: 180px;
 
     /* Padding */
-    padding: 0px 50px;
+    padding: 0px 36px;
 
     /* Border */
     border: ${ props => props.variant === "primary" ? "unset" : "solid 1px #AAAAAA" };
@@ -25,7 +25,7 @@ const StyledButton = styled.button`
         cursor: pointer;
     }
     &:focus {
-        background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#CBCBCB" }
+        background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#CBCBCB" };
         border: 2px solid ${ props => props.variant === "primary" ? "#2B4BBA" : "#757575" };
         box-shadow: 0px 0px 4px 1px ${ props => props.variant === "primary" ? "#2B4BBA" : "#595959" };
     }
