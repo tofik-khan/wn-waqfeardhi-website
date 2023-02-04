@@ -2,6 +2,10 @@ import { Star } from "react-bootstrap-icons";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
 
+import Container from "react-bootstrap/Container";
+import  Row  from "react-bootstrap/Row";
+import  Col  from "react-bootstrap/Col"
+
 export default function Page() {
     return (
     <>
@@ -18,5 +22,12 @@ export default function Page() {
         <br />
         <Chip variant="solid"></Chip>
         <Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip>
+
+        <Container className="py-10">
+            <Row>
+                <Col xs={6}>Test</Col>
+                <Col xs={6}>Test</Col>
+            </Row>
+        </Container>
     </>);
 }
