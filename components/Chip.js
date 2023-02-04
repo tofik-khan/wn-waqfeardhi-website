@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const StyledWrapper = styled.div`
+
+    all: unset;
+
     background-color: ${ props => props.variant === "solid" ? "#607EEB" : "transparent" };
 
     /* Size */

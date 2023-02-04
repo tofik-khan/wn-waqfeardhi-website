@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
 
+    all: unset;
+
     background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#EEEEEE" };
 
     /* Size */
