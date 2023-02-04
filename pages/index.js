@@ -23,7 +23,7 @@ export default function Page() {
         <Chip variant="solid"></Chip>
         <Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip>
 
-        <Container className="py-10">
+        <Container className="py-5">
             <Row>
                 <Col xs={6}>Test</Col>
                 <Col xs={6}>Test</Col>
