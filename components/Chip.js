@@ -22,8 +22,6 @@ const StyledWrapper = styled.div`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    margin-left: 10px;
 `
 
 const StyledText = styled.span`
