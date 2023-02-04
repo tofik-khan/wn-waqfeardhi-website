@@ -11,9 +11,11 @@ export default function Page() {
     <>
         <h1>Hello, Next.js!</h1>
         <Button variant="primary">Test Button</Button>
+        <Button variant="primary" size="small">Test Button</Button>
         <br />
         <br />
         <Button variant="secondary">Test Button</Button>
+        <Button variant="secondary" size="small">Test Button</Button>
         <br />
         <br />
         <Chip></Chip>
