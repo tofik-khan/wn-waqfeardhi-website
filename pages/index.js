@@ -1,10 +1,10 @@
 import { Star } from "react-bootstrap-icons";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
-
 import Container from "react-bootstrap/Container";
 import  Row  from "react-bootstrap/Row";
 import  Col  from "react-bootstrap/Col"
+import Card from "../components/Card";
 
 export default function Page() {
     return (
@@ -29,6 +29,17 @@ export default function Page() {
             <Row>
                 <Col xs={6}>Test</Col>
                 <Col xs={6}>Test</Col>
+            </Row>
+            <Row>
+                <Col xs={4}>
+                    <Card />
+                </Col>
+                <Col xs={4}>
+                    <Card />
+                </Col>
+                <Col xs={4}>
+                    <Card />
+                </Col>
             </Row>
         </Container>
     </>);
