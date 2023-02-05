@@ -27,20 +27,18 @@ export default function Page() {
 
         <Container className="py-5">
             <Row>
-                <Col xs={4}>
+                <Col xs={6}>
                 <Card >
                     <Card.Heading>Test Heading 1</Card.Heading>
                     <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
-                    <Card.Body>This is a sample body</Card.Body>
+                    <Card.Body>
+                        <p>This is a sample body</p>
+                        <div><Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip><Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip><Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip></div>
+                        <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
+                    </Card.Body>
                 </Card>
                 </Col>
-                <Col xs={4}>
-                    <Card >
-                        <Card.Heading>Test Heading 2</Card.Heading>
-                        <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
-                    </Card>
-                </Col>
-                <Col xs={4}>
+                <Col xs={6}>
                 <Card >
                     <Card.Heading>Test Heading 3</Card.Heading>
                     <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
