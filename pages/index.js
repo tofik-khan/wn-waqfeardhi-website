@@ -31,6 +31,7 @@ export default function Page() {
                 <Card >
                     <Card.Heading>Test Heading 1</Card.Heading>
                     <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
+                    <Card.Body>This is a sample body</Card.Body>
                 </Card>
                 </Col>
                 <Col xs={4}>

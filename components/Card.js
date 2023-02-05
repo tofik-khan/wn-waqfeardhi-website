@@ -17,15 +17,28 @@ const StyledHeading = styled.h3`
     /* Text */
     font-weight: bold;
     font-size: 20px;
+
+    /* Margins */
+    margin-bottom: 0px;
 `
 
 const StyledSubHeading = styled.p`
-    /* Reset Settings */
-    all: unset;
+
+    /* Margins */
+    margin-top: 0px;
+    margin-bottom: 0px;
 
     /* Text */
     font-style: italic;
 `
+
+function Body ({children}) {
+    return (
+        <>
+            {children}
+        </>
+    )
+}
 
 function Card ({children}) {
     return (
@@ -59,5 +72,6 @@ function SubHeading ({children}) {
 
 Card.Heading = Heading;
 Card.SubHeading = SubHeading;
+Card.Body = Body;
 
 export default Card;
