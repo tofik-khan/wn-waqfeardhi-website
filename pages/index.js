@@ -53,6 +53,7 @@ export default function Page() {
                 <Col xs={6}><TextInput label="Sample Lable" /></Col>
                 <Col xs={6}><TextInput label="Fixed Width" width={30} /></Col>
                 <Col xs={6}><TextInput label="Placeholder" placeholder="This is placeholder" /></Col>
+                <Col xs={6}><TextInput label="Error State" isError={true} errorMessage="Check Input" /></Col>
             </Row>
         </Container>
     </>);

@@ -10,12 +10,13 @@ const StyledInput = styled.input`
 `
 
 
-function Input ({label, width, placeholder, onChange}) {
+function Input ({label, width, placeholder, onChange, isError, errorMessage}) {
     return (
         <>
             <div>
                 { label && <><label htmlFor="input-field">{label}</label>  <br /> </>}
-                <StyledInput width={width} type="text" placeholder={placeholder} onChange={onChange}/>
+                <StyledInput width={width} type="text" placeholder={placeholder} onChange={onChange}/><br/>
+                { isError && <span>{errorMessage || "There is some issue, check the input"}</span> }
             </div>
         </>
     )
