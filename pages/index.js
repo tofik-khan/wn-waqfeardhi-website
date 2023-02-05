@@ -27,18 +27,20 @@ export default function Page() {
 
         <Container className="py-5">
             <Row>
-                <Col xs={6}>Test</Col>
-                <Col xs={6}>Test</Col>
-            </Row>
-            <Row>
                 <Col xs={4}>
-                    <Card />
+                <Card >
+                    <Card.Heading>Test Heading 1</Card.Heading>
+                </Card>
                 </Col>
                 <Col xs={4}>
-                    <Card />
+                    <Card >
+                        <Card.Heading>Test Heading 2</Card.Heading>
+                    </Card>
                 </Col>
                 <Col xs={4}>
-                    <Card />
+                <Card >
+                    <Card.Heading>Test Heading 3</Card.Heading>
+                </Card>
                 </Col>
             </Row>
         </Container>

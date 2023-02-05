@@ -7,19 +7,40 @@ const StyledWrapper = styled.div`
     border-radius: 4px;
 
     /* Padding */
-    padding: 32px 16px;
+    padding: 12px 16px;
 
 
 `
 
-function Card () {
+const StyledHeading = styled.h3`
+
+    /* Reset Settings */
+    all: unset;
+
+    /* Text */
+    font-weight: bold;
+`
+
+function Card ({children}) {
     return (
         <>
             <StyledWrapper>
-                <h2>Test</h2>
+                {children}
             </StyledWrapper>
         </>
     )
 }
+
+function Heading ({children}) {
+    return (
+        <>
+            <StyledHeading>
+                {children}
+            </StyledHeading>
+        </>
+    )
+}
+
+Card.Heading = Heading
 
 export default Card;
