@@ -1,10 +1,10 @@
 import { Star } from "react-bootstrap-icons";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
-
 import Container from "react-bootstrap/Container";
 import  Row  from "react-bootstrap/Row";
 import  Col  from "react-bootstrap/Col"
+import Card from "../components/Card";
 
 export default function Page() {
     return (
@@ -27,8 +27,23 @@ export default function Page() {
 
         <Container className="py-5">
             <Row>
-                <Col xs={6}>Test</Col>
-                <Col xs={6}>Test</Col>
+                <Col xs={6}>
+                <Card >
+                    <Card.Heading>Test Heading 1</Card.Heading>
+                    <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
+                    <Card.Body>
+                        <p>This is a sample body</p>
+                        <div><Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip><Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip><Chip variant="solid" icon={<Star fill="currentColor" />} iconPosition="right"></Chip></div>
+                        <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
+                    </Card.Body>
+                </Card>
+                </Col>
+                <Col xs={6}>
+                <Card >
+                    <Card.Heading>Test Heading 3</Card.Heading>
+                    <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
+                </Card>
+                </Col>
             </Row>
         </Container>
     </>);
