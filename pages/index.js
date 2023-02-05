@@ -50,7 +50,8 @@ export default function Page() {
         <Container>
             <h2>Text Input</h2>
             <Row>
-                <Col xs={6}><TextInput label="Test Text Label" /></Col>
+                <Col xs={6}><TextInput label="Sample Lable" /></Col>
+                <Col xs={6}><TextInput label="Fixed Width" width={30} /></Col>
             </Row>
         </Container>
     </>);

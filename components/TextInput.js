@@ -1,10 +1,21 @@
+import styled from "styled-components";
 
-function Input ({label}) {
+const StyledInput = styled.input`
+
+    /* Size */
+    width: ${props => props.width? `${props.width}px` : "100%" };
+
+    /* Padding */
+    padding-left: 8px;
+`
+
+
+function Input ({label, width}) {
     return (
         <>
             <div>
                 { label && <><label htmlFor="input-field">{label}</label>  <br /> </>}
-                <input type="text" />
+                <StyledInput width={width} type="text" />
             </div>
         </>
     )
