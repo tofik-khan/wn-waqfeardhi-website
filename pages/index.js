@@ -1,6 +1,7 @@
 import { Star } from "react-bootstrap-icons";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
+import TextInput from "../components/TextInput";
 import Container from "react-bootstrap/Container";
 import  Row  from "react-bootstrap/Row";
 import  Col  from "react-bootstrap/Col"
@@ -44,6 +45,12 @@ export default function Page() {
                     <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
                 </Card>
                 </Col>
+            </Row>
+        </Container>
+        <Container>
+            <h2>Text Input</h2>
+            <Row>
+                <Col xs={6}><TextInput label="Test Text Label" /></Col>
             </Row>
         </Container>
     </>);
