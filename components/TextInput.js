@@ -10,12 +10,12 @@ const StyledInput = styled.input`
 `
 
 
-function Input ({label, width}) {
+function Input ({label, width, placeholder, onChange}) {
     return (
         <>
             <div>
                 { label && <><label htmlFor="input-field">{label}</label>  <br /> </>}
-                <StyledInput width={width} type="text" />
+                <StyledInput width={width} type="text" placeholder={placeholder} onChange={onChange}/>
             </div>
         </>
     )

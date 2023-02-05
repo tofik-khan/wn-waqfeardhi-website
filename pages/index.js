@@ -52,6 +52,7 @@ export default function Page() {
             <Row>
                 <Col xs={6}><TextInput label="Sample Lable" /></Col>
                 <Col xs={6}><TextInput label="Fixed Width" width={30} /></Col>
+                <Col xs={6}><TextInput label="Placeholder" placeholder="This is placeholder" /></Col>
             </Row>
         </Container>
     </>);
