@@ -14,11 +14,17 @@ const StyledWrapper = styled.div`
 
 const StyledHeading = styled.h3`
 
+    /* Text */
+    font-weight: bold;
+    font-size: 20px;
+`
+
+const StyledSubHeading = styled.p`
     /* Reset Settings */
     all: unset;
 
     /* Text */
-    font-weight: bold;
+    font-style: italic;
 `
 
 function Card ({children}) {
@@ -41,6 +47,17 @@ function Heading ({children}) {
     )
 }
 
-Card.Heading = Heading
+function SubHeading ({children}) {
+    return (
+        <>
+            <StyledSubHeading>
+                {children}
+            </StyledSubHeading>
+        </>
+    )
+}
+
+Card.Heading = Heading;
+Card.SubHeading = SubHeading;
 
 export default Card;

@@ -30,16 +30,19 @@ export default function Page() {
                 <Col xs={4}>
                 <Card >
                     <Card.Heading>Test Heading 1</Card.Heading>
+                    <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
                 </Card>
                 </Col>
                 <Col xs={4}>
                     <Card >
                         <Card.Heading>Test Heading 2</Card.Heading>
+                        <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
                     </Card>
                 </Col>
                 <Col xs={4}>
                 <Card >
                     <Card.Heading>Test Heading 3</Card.Heading>
+                    <Card.SubHeading>This is a test SubHeading</Card.SubHeading>
                 </Card>
                 </Col>
             </Row>
