@@ -40,6 +40,10 @@ const StyledMessage = styled.span`
 
     /* Text  */
     color: ${props => props.isError? "red" : "black"} ;
+    font-size: 12px;
+
+    /* Line */
+    line-height: 0;
 `
 
 function Input ({label, width, placeholder, onChange, isError, errorMessage}) {
