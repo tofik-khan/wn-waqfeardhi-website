@@ -16,8 +16,23 @@ const StyledInput = styled.input`
     padding-left: 8px;
 
     /* Border */
-    ${props => props.isError? "border: solid 2px red" : ""} ;
+    border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
     border-radius: 4px;
+
+    &:hover {
+
+        /* Shadow */
+        box-shadow: 0px 0px 4px ${props => props.isError? "red" : "#607EEB"} ;
+    }
+
+    &:focus {
+        
+        outline: none;
+
+        /* Border */
+        border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
+        border-radius: 4px;
+    }
 
 `
 
