@@ -13,6 +13,10 @@ const StyledWrapper = styled.div`
     /* Padding */
     padding: 0px 8px;
 
+    /* Margin */
+    margin-left: ${ props => props.marginLeft || "0" };
+    margin-right: ${ props => props.marginRight || "0" };
+
     /* Border */
     border: solid 1px ${ props => props.variant === "solid" ? "#8D9CD2" : "#607EEB" };
     border-radius: 4px;
@@ -42,11 +46,11 @@ const StyledIcon = styled.div`
     width: 20px;
 `
 
-export default function Chip({variant, icon, iconPosition}) {
+export default function Chip({variant, icon, iconPosition, label, marginRight, marginLeft}) {
     return (<>
-        <StyledWrapper variant={variant}>
+        <StyledWrapper variant={variant} marginRight={marginRight} marginLeft={marginLeft}>
             {icon && iconPosition === "left" ? <StyledIcon>{icon}</StyledIcon> : null}
-            <StyledText>Test</StyledText>
+            <StyledText>{label || "Test"}</StyledText>
             {icon && iconPosition === "right" ? <StyledIcon>{icon}</StyledIcon> : null}
         </StyledWrapper>     
     </>)
