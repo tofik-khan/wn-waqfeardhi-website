@@ -19,6 +19,10 @@ export default function Page() {
         <Button variant="secondary" size="small">Test Button</Button>
         <br />
         <br />
+        <Button variant="secondary" href="/listings">Test Link</Button>
+        <Button variant="secondary" href="/listings" size="small">Test Link</Button>
+        <br />
+        <br />
         <Chip></Chip>
         <Chip icon={<Star fill="currentColor" />} iconPosition="right"></Chip>
         <br />
