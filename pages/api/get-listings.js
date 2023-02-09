@@ -9,5 +9,14 @@ export default async function handler (req, res) {
         scopes: "https://www.googleapis.com/auth/spreadsheets",
       });
 
+    //Auth client Object
+    const authClientObject = await auth.getClient();
+
+    //Google sheets instance
+    const googleSheetsInstance = google.sheets({
+        version: "v4",
+        auth: authClientObject,
+    });
+    
     res.status(200).json({success: true});
 }
