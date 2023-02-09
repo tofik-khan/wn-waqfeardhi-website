@@ -1,6 +1,5 @@
 export default async function handler (req, res) {
 
-    const express = require("express");
     const { google } = require("googleapis");
 
     const auth = new google.auth.GoogleAuth({
@@ -17,6 +16,18 @@ export default async function handler (req, res) {
         version: "v4",
         auth: authClientObject,
     });
-    
-    res.status(200).json({success: true});
+
+    // spreadsheet id
+    const spreadsheetId = `${process.env.GOOGLE_SHEETS_ID}`;
+
+    //Read front the spreadsheet
+    const readData = await googleSheetsInstance.spreadsheets.values.get({
+        auth, //auth object
+        spreadsheetId, // spreadsheet id
+        range: "Listings!A:E", //range of cells to read from.
+    });
+
+    //console.log(readData)
+
+    res.status(200).json(readData.data.values);
 }
