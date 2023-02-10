@@ -35,7 +35,6 @@ export default async function handler (req, res) {
               }
           });
           console.log(`${result.data.updates.updatedCells} cells appended.`);
-          return result;
         } catch (err) {
           console.log("Error: Failed to append to Sheet")
           console.log(err.message)
