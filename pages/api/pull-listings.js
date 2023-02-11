@@ -27,6 +27,7 @@ export default async function handler (req, res) {
     const spreadsheetId = `${process.env.GOOGLE_SHEETS_ID}`;
 
     //Read front the spreadsheet
+    //TODO: wrap this in a try/catch block
     const readData = await googleSheetsInstance.spreadsheets.values.get({
         auth, //auth object
         spreadsheetId, // spreadsheet id
@@ -36,7 +37,7 @@ export default async function handler (req, res) {
     //Update content files
     createContentFile(readData.data.values)
 
-    res.status(200).json(readData.data.values);
+    res.status(200).json({success: true, response: readData.data.values});
 }
 
 function createContentFile(data) {

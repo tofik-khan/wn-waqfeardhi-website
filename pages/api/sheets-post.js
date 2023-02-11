@@ -1,6 +1,5 @@
 export default async function handler (req, res) {
 
-    console.log(req.body.auth)
 
     // Authenticate request
     if(!req.body.auth || req.body.auth !== process.env.API_AUTH_TOKEN ) {
