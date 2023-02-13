@@ -6,10 +6,16 @@ import Card from "../components/Card"
 import Chip from "../components/Chip"
 import Button from "../components/Button"
 
-function getData () {
+const getData =  () => {
     const data = require("/content/listings.json");
     //Todo: Convert data from nested arrays to a key/valued array of objects
     return data.slice(1); //remove headings and only return the listings
+}
+
+const displayChips =  (tagArray) => {
+    const tags = tagArray.split(',');
+    const chips = tags.map((element, i) => (<Chip label={element} key={i} marginRight="4px" />));
+    return chips;
 }
 
 
@@ -38,9 +44,7 @@ export default function Page () {
                                 <Card.SubHeading>{listing[SUBTITLE]}</Card.SubHeading>
                                 <Card.Body>
                                     <p>{listing[DESCRIPTION]}</p>
-                                    <div>{listing[TAGS].split(",").map((element, i) => {
-                                        return (<Chip label={element} key={i} marginRight="4px" />)
-                                    })}</div>
+                                    <div>{displayChips(listing[TAGS])}</div>
                                     <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
                                 </Card.Body>
                             </Card>
