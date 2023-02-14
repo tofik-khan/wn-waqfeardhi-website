@@ -6,11 +6,7 @@ import Card from "../components/Card"
 import Chip from "../components/Chip"
 import Button from "../components/Button"
 
-const getData =  () => {
-    const data = require("/content/listings.json");
-    //Todo: Convert data from nested arrays to a key/valued array of objects
-    return data.slice(1); //remove headings and only return the listings
-}
+import { getData, TITLE, SUBTITLE, DESCRIPTION, SLUG, TAGS } from "./api/get-listings-data";
 
 const displayChips =  (tagArray) => {
     const tags = tagArray.split(',');
@@ -23,14 +19,6 @@ const displayChips =  (tagArray) => {
 export default function Page () {
 
     const listings = getData();
-
-    //Todo: Move to a constants file until getData is upgraded
-    const TITLE = 0;
-    const SUBTITLE = 1;
-    const DESCRIPTION = 2;
-    const TAGS = 3;
-    const SLUG = 4;
-
 
     return (
         <>
@@ -45,7 +33,7 @@ export default function Page () {
                                 <Card.Body>
                                     <p>{listing[DESCRIPTION]}</p>
                                     <div>{displayChips(listing[TAGS])}</div>
-                                    <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
+                                    <div className="pt-2"><Button variant="primary" size="small" href={`/listings/${listing[SLUG]}`}>Test Button</Button></div>
                                 </Card.Body>
                             </Card>
                         </Col>)
