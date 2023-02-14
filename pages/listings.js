@@ -1,5 +1,3 @@
-
-
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -8,38 +6,50 @@ import Card from "../components/Card"
 import Chip from "../components/Chip"
 import Button from "../components/Button"
 
+const getData =  () => {
+    const data = require("/content/listings.json");
+    //Todo: Convert data from nested arrays to a key/valued array of objects
+    return data.slice(1); //remove headings and only return the listings
+}
 
+const displayChips =  (tagArray) => {
+    const tags = tagArray.split(',');
+    const chips = tags.map((element, i) => (<Chip label={element} key={i} marginRight="4px" />));
+    return chips;
+}
 
 
 
 export default function Page () {
+
+    const listings = getData();
+
+    //Todo: Move to a constants file until getData is upgraded
+    const TITLE = 0;
+    const SUBTITLE = 1;
+    const DESCRIPTION = 2;
+    const TAGS = 3;
+    const SLUG = 4;
+
+
     return (
         <>
             <h1 className="py-5 text-center">Job Postings</h1>
             <Container>
                 <Row>
-                    <Col md={4} lg={6}>
-                        <Card >
-                            <Card.Heading>Web Development</Card.Heading>
-                            <Card.SubHeading>Sira-e-Khidmat, Silver Spring MD, 9999</Card.SubHeading>
-                            <Card.Body>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
-                                <div><Chip label="No Experience" marginRight="4px" /><Chip marginRight="4px" /></div>
-                                <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={4} lg={6}>
-                        <Card >
-                            <Card.Heading>Web Development</Card.Heading>
-                            <Card.SubHeading>Sira-e-Khidmat, Silver Spring MD, 9999</Card.SubHeading>
-                            <Card.Body>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...</p>
-                                <div><Chip label="No Experience" marginRight="4px" /><Chip marginRight="4px" /></div>
-                                <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                    {listings.map((listing) => {
+                        return ( <Col md={6} key={listing[SLUG]} className="pt-3">
+                            <Card >
+                                <Card.Heading>{listing[TITLE]}</Card.Heading>
+                                <Card.SubHeading>{listing[SUBTITLE]}</Card.SubHeading>
+                                <Card.Body>
+                                    <p>{listing[DESCRIPTION]}</p>
+                                    <div>{displayChips(listing[TAGS])}</div>
+                                    <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
+                                </Card.Body>
+                            </Card>
+                        </Col>)
+                    })}
                 </Row>
             </Container>
         </>
