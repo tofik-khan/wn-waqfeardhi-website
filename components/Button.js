@@ -57,9 +57,9 @@ const StyledLink = styled(Link)`
     ${SharedStyle}
 `
 
-export default function Button ({variant, children, size, href}) {
+export default function Button ({variant, children, size, href, onChange}) {
     if (href) {
         return <StyledLink href={href} variant={variant} size={size}>{children}</StyledLink>
     }
-    return <StyledButton variant={variant} size={size} type="button">{children}</StyledButton>
+    return <StyledButton variant={variant} size={size} onChange={onChange} type="button">{children}</StyledButton>
 }
