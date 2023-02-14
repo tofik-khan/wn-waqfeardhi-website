@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -11,8 +11,15 @@ import TextInput from "/components/TextInput";
 import Button from "/components/Button";
 
 export default function Page () {
-  const router = useRouter()
-  const { slug } = router.query
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const [listings, updateListings] = useState([]);
+  const [formData, updateFormData] = useState({});
+
+  useEffect(() => {
+    updateListings(getData());
+  }, [])
 
   if(listings.length === 0) {
     return <h1>Loading</h1>
@@ -22,9 +29,6 @@ export default function Page () {
   if(selectedListing.length === 0) {
     return <h1>Listing not Found</h1>
   }
-
-  const [formData, updateFormData] = useState({});
-  console.log(formData)
 
   return (
     <>
