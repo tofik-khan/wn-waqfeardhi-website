@@ -6,7 +6,7 @@ import Card from "../components/Card"
 import Chip from "../components/Chip"
 import Button from "../components/Button"
 
-import { getData, TITLE, SUBTITLE, DESCRIPTION, SLUG, TAGS } from "./api/get-listings-data"
+import { getData, TITLE, SUBTITLE, DESCRIPTION, SLUG, TAGS } from "./api/get-listings-data";
 
 const displayChips =  (tagArray) => {
     const tags = tagArray.split(',');
