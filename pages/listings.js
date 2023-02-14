@@ -33,7 +33,7 @@ export default function Page () {
                                 <Card.Body>
                                     <p>{listing[DESCRIPTION]}</p>
                                     <div>{displayChips(listing[TAGS])}</div>
-                                    <div className="pt-2"><Button variant="primary" size="small">Test Button</Button></div>
+                                    <div className="pt-2"><Button variant="primary" size="small" href={`/listings/${listing[SLUG]}`}>Test Button</Button></div>
                                 </Card.Body>
                             </Card>
                         </Col>)
