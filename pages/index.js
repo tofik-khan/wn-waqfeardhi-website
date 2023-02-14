@@ -54,7 +54,7 @@ export default function Page() {
         <Container>
             <h2>Text Input</h2>
             <Row>
-                <Col xs={6}><TextInput label="Sample Lable" /></Col>
+                <Col xs={6}><TextInput label="Sample Lable" onChange={(event) => console.log(event.target.value)}/></Col>
                 <Col xs={6}><TextInput label="Fixed Width" width={30} /></Col>
                 <Col xs={6}><TextInput label="Placeholder" placeholder="This is placeholder" /></Col>
                 <Col xs={6}><TextInput label="Error State" isError={true} errorMessage="Check Input" /></Col>
