@@ -14,7 +14,9 @@ export default function Page () {
   const router = useRouter()
   const { slug } = router.query
 
-  const listings = getData();
+  if(listings.length === 0) {
+    return <h1>Loading</h1>
+  }
 
   const selectedListing = listings.filter((element) => element[SLUG] === slug)[0];
   if(selectedListing.length === 0) {
