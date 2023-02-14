@@ -38,7 +38,7 @@ export default function Page () {
             <Container>
                 <Row>
                     {listings.map((listing) => {
-                        return ( <Col md={4} lg={6} key={listing[SLUG]}>
+                        return ( <Col md={6} key={listing[SLUG]} className="pt-3">
                             <Card >
                                 <Card.Heading>{listing[TITLE]}</Card.Heading>
                                 <Card.SubHeading>{listing[SUBTITLE]}</Card.SubHeading>
