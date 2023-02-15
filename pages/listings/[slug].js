@@ -52,9 +52,29 @@ export default function Page () {
                 <Col sm={6}><TextInput label="Phone Number" onChange={(event) => updateFormData({...formData, phone: event.target.value})}/></Col>
             </Row>
             <Row>
-                <Col><Button variant="primary" onClick={() => console.log(formData)}>Submit</Button></Col>
+                <Col><Button variant="primary" onClick={() => submitForm(formData, slug)}>Submit</Button></Col>
             </Row>
         </Container>
     </>
   );
+}
+
+async function submitForm(formData, slug) {
+    const body = {
+        auth: process.env.API_AUTH_TOKEN,
+        formData: {...formData, slug: slug}
+    }
+    console.log(body)
+
+    const requestOptions = {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    }
+
+    fetch("/api/sheets-post", requestOptions)
+        .then((response) => response.json())
+        .then((response) => console.log(response));
+    
+
 }
