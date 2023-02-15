@@ -7,6 +7,7 @@ export default async function handler (req, res) {
         return;
     }
 
+    const formData = req.body.formData;
     const { google } = require("googleapis");
 
     const auth = new google.auth.GoogleAuth({
@@ -36,8 +37,13 @@ export default async function handler (req, res) {
                 range: "Responses",
                 majorDimension: "ROWS",
                 values: [
-                  ["Tofik",
-                  "Khan"]
+                  [
+                    formData.firstname,
+                    formData.lastname,
+                    formData.email,
+                    formData.phone,
+                    formData.slug
+                  ]
                 ]
               }
           });
