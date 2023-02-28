@@ -68,7 +68,7 @@ export default function Page () {
                     <Col sm={6}>
                         <TextInput 
                             label="Email"
-                            isError={false} 
+                            isError={false} //Todo: Figure out how to determine if email is valid on submit?
                             errorMessage="This must be a valid email"
                             onChange={(event) => updateFormData({...formData, email: event.target.value})}
                         />
