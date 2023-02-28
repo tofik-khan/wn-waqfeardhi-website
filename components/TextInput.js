@@ -43,6 +43,7 @@ const StyledMessage = styled.span`
     font-size: 12px;
 `
 
+// Todo: Convert isError & errorMessage to an object { error: true; message: "error Message"}
 function Input ({label, width, placeholder, onChange, isError, errorMessage}) {
     return (
         <>

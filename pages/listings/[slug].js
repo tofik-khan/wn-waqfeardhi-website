@@ -47,11 +47,32 @@ export default function Page () {
                     <h2>Submit Form</h2>
                 </Row>
                 <Row>
-                    <Col sm={6}><TextInput label="First Name" onChange={(event) => updateFormData({...formData, firstname: event.target.value})}/></Col>
-                    <Col sm={6}><TextInput label="Last Name"  onChange={(event) => updateFormData({...formData, lastname: event.target.value})}/></Col>
+                    <Col sm={6}>
+                        <TextInput 
+                            label="First Name" 
+                            isError={checkFirstnameError(formData)} 
+                            errorMessage="This field cannot be left blank" 
+                            onChange={(event) => updateFormData({...formData, firstname: event.target.value})}
+                        />
+                    </Col>
+                    <Col sm={6}>
+                        <TextInput 
+                            label="Last Name"
+                            isError={checkLastnameError(formData)} 
+                            errorMessage="This field cannot be left blank" 
+                            onChange={(event) => updateFormData({...formData, lastname: event.target.value})}
+                        />
+                    </Col>
                 </Row>
                 <Row className='py-2'>
-                    <Col sm={6}><TextInput label="Email" onChange={(event) => updateFormData({...formData, email: event.target.value})}/></Col>
+                    <Col sm={6}>
+                        <TextInput 
+                            label="Email"
+                            isError={false} //Todo: Figure out how to determine if email is valid on submit?
+                            errorMessage="This must be a valid email"
+                            onChange={(event) => updateFormData({...formData, email: event.target.value})}
+                        />
+                    </Col>
                     <Col sm={6}><TextInput label="Phone Number" onChange={(event) => updateFormData({...formData, phone: event.target.value})}/></Col>
                 </Row>
                 <Row>
@@ -69,6 +90,14 @@ export default function Page () {
         </>
     )
   }
+}
+
+function checkFirstnameError(formData) {
+    return formData["firstname"] !== undefined && formData.firstname === "";
+}
+
+function checkLastnameError(formData) {
+    return formData["lastname"] !== undefined && formData.lastname === "";
 }
 
 async function submitForm(formData, slug) {
