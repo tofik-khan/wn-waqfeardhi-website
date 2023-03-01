@@ -14,6 +14,8 @@ const StyledInput = styled.input`
 
     /* Padding */
     padding-left: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
 
     /* Border */
     border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
