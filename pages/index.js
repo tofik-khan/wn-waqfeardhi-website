@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import Chip from "../components/Chip";
 import TextInput from "../components/TextInput";
 import Dropdown from "../components/Dropdown";
+import ToggleSwitch from "../components/ToggleSwitch";
 import Container from "react-bootstrap/Container";
 import  Row  from "react-bootstrap/Row";
 import  Col  from "react-bootstrap/Col"
@@ -71,9 +72,15 @@ export default function Page() {
             </Row>
         </Container>
         <Container>
-            <h2>Text Input</h2>
+            <h2>Dropdown</h2>
             <Row>
                 <Col xs={6}><Dropdown options={dropdownOptions} label="test Label" onChange={(option) => console.log(option.value)}/></Col>
+            </Row>
+        </Container>
+        <Container>
+            <h2>Toggle Switch</h2>
+            <Row>
+                <Col xs={6}><ToggleSwitch label="Toggle Label" onChange={(event) => console.log(event.target.checked)}/></Col>
             </Row>
         </Container>
     </>);
