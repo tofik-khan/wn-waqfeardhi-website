@@ -41,8 +41,10 @@ export default async function handler (req, res) {
                     formData.firstname,
                     formData.lastname,
                     formData.email,
-                    formData.phone,
-                    formData.slug
+                    formData.jammat,
+                    formData.aux,
+                    formData.isWaqfeNau,
+                    formData.comment
                   ]
                 ]
               }

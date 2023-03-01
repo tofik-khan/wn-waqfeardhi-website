@@ -1,3 +1,5 @@
+import React from "react";
+
 import styled from "styled-components";
 
 const StyledLabel = styled.label`
@@ -7,15 +9,13 @@ const StyledLabel = styled.label`
 
 `
 
-const StyledInput = styled.input`
-
+const StyledTextArea = styled.textarea`
+    
     /* Size */
     width: ${props => props.width? `${props.width}px` : "100%" };
 
     /* Padding */
     padding-left: 8px;
-    padding-top: 6px;
-    padding-bottom: 6px;
 
     /* Border */
     border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
@@ -35,7 +35,6 @@ const StyledInput = styled.input`
         border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
         border-radius: 4px;
     }
-
 `
 
 const StyledMessage = styled.span`
@@ -45,15 +44,12 @@ const StyledMessage = styled.span`
     font-size: 12px;
 `
 
-// Todo: Convert isError & errorMessage to an object { error: true; message: "error Message"}
-function Input ({label, width, placeholder, onChange, isError, errorMessage}) {
+export default function TextArea ({label, width, placeholder, onChange, isError, errorMessage}) {
     return (
         <>
                 { label && <><StyledLabel isError={isError} htmlFor="input-field">{label}</StyledLabel>  <br /> </>}
-                <StyledInput width={width} type="text" placeholder={placeholder} onChange={onChange} isError={isError}/><br/>
+                <StyledTextArea width={width} type="text" placeholder={placeholder} onChange={onChange} isError={isError}/><br/>
                 { isError && <StyledMessage isError={isError}>{errorMessage || "There is some issue, check the input"}</StyledMessage> }
         </>
     )
 }
-
-export default Input;

@@ -2,12 +2,24 @@ import { Star } from "react-bootstrap-icons";
 import Button from "../components/Button";
 import Chip from "../components/Chip";
 import TextInput from "../components/TextInput";
+import Dropdown from "../components/Dropdown";
+import ToggleSwitch from "../components/ToggleSwitch";
+import TextArea from "../components/TextArea";
 import Container from "react-bootstrap/Container";
 import  Row  from "react-bootstrap/Row";
 import  Col  from "react-bootstrap/Col"
 import Card from "../components/Card";
 
 export default function Page() {
+
+    const dropdownOptions = [
+        { value: "Option1", label: "Option1" },
+        { value: "Option2", label: "Option2" },
+        { value: "Option3", label: "Option3" },
+        { value: "Option4", label: "Option4" },
+        { value: "Option5", label: "Option5" },
+    ]
+
     return (
     <>
         <h1>Hello, Next.js!</h1>
@@ -58,6 +70,24 @@ export default function Page() {
                 <Col xs={6}><TextInput label="Fixed Width" width={30} /></Col>
                 <Col xs={6}><TextInput label="Placeholder" placeholder="This is placeholder" /></Col>
                 <Col xs={6}><TextInput label="Error State" isError={true} errorMessage="Check Input" /></Col>
+            </Row>
+        </Container>
+        <Container>
+            <h2>Dropdown</h2>
+            <Row>
+                <Col xs={6}><Dropdown options={dropdownOptions} label="test Label" onChange={(option) => console.log(option.value)}/></Col>
+            </Row>
+        </Container>
+        <Container>
+            <h2>Toggle Switch</h2>
+            <Row>
+                <Col xs={6}><ToggleSwitch label="Toggle Label" onChange={(event) => console.log(event.target.checked)}/></Col>
+            </Row>
+        </Container>
+        <Container>
+            <h2>TextArea</h2>
+            <Row>
+                <Col xs={6}><TextArea label="TextArea Label" onChange={(event) => console.log(event.target.value)} isError={true}/></Col>
             </Row>
         </Container>
     </>);
