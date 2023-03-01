@@ -17,6 +17,17 @@ const StyledMessage = styled.span`
     font-size: 12px;
 `
 
+const customStyle = {
+    control: (baseStyles, _state) => ({
+      ...baseStyles,
+      border: "solid 2px #607EEB",
+      "&:hover": {
+        boxShadow: "0px 0px 4px #607EEB",
+        cursor: "pointer"
+      }
+    })
+  }
+
 export default ({defaultValue, isSearchable, isDisabled, isLoading, onChange, options, label, error}) => {
 
     return (
@@ -29,6 +40,7 @@ export default ({defaultValue, isSearchable, isDisabled, isLoading, onChange, op
                 isLoading={isLoading}
                 onChange={onChange}
                 options={options}
+                styles={customStyle}
             />
             { error?.isError && <StyledMessage isError={error?.isError}>{errorMessage || "There is some issue, check the input"}</StyledMessage> }
         </>

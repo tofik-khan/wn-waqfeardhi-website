@@ -73,7 +73,7 @@ export default function Page() {
         <Container>
             <h2>Text Input</h2>
             <Row>
-                <Col xs={6}><Dropdown options={dropdownOptions} label="test Label"/></Col>
+                <Col xs={6}><Dropdown options={dropdownOptions} label="test Label" onChange={(option) => console.log(option.value)}/></Col>
             </Row>
         </Container>
     </>);
