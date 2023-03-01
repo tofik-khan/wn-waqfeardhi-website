@@ -8,7 +8,10 @@ import Col from "react-bootstrap/Col"
 import { getData, TITLE, SUBTITLE, DESCRIPTION, SLUG, TAGS } from "/pages/api/get-listings-data";
 
 import TextInput from "/components/TextInput";
+import Dropdown from '/components/Dropdown';
 import Button from "/components/Button";
+import ToggleSwitch from '/components/ToggleSwitch';
+import TextArea from '/components/TextArea';
 
 export default function Page () {
   const router = useRouter();
@@ -31,6 +34,15 @@ export default function Page () {
     return <h1>Listing not Found</h1>
   }
 
+  const jammatOptions = require("/content/jammat.json");
+  const auxiliaryOptions = [
+    { value: "Ansar", label: "Ansarullah" },
+    { value: "Atfal", label: "Atfal-ul-Ahmadiyya" },
+    { value: "Khuddam", label: "Khuddam-ul-Ahmadiyya" },
+    { value: "Lajna", label: "Lajna Ima'illah" },
+    { value: "Nasirat", label: "Nasirat-ul-Ahmadiyya" },
+  ]
+
 
   if(screen === "FORM") {
     return (
@@ -46,7 +58,7 @@ export default function Page () {
                 <Row>
                     <h2>Submit Form</h2>
                 </Row>
-                <Row>
+                <Row className='py-2'>
                     <Col sm={6}>
                         <TextInput 
                             label="First Name" 
@@ -73,9 +85,18 @@ export default function Page () {
                             onChange={(event) => updateFormData({...formData, email: event.target.value})}
                         />
                     </Col>
-                    <Col sm={6}><TextInput label="Phone Number" onChange={(event) => updateFormData({...formData, phone: event.target.value})}/></Col>
+                    <Col sm={6}><Dropdown label="Jammat" options={jammatOptions} onChange={(option) => updateFormData({...formData, jammat: option.value})} /></Col>
                 </Row>
-                <Row>
+                <Row className='py-2 align-items-center'>
+                    <Col sm={6}><Dropdown label="Auxiliary" options={auxiliaryOptions} onChange={(option) => updateFormData({...formData, aux: option.value})} /></Col>
+                    <Col sm={6} className="pt-4"><ToggleSwitch label="Are you part of the Waqf-e-Nau Scheme?" onChange={(event) => updateFormData({...formData, isWaqfeNau: event.target.checked})} /></Col>
+                </Row>
+                <Row className='py-2 justify-content-center'>
+                    <Col sm={10}>
+                        <TextArea label="Share any relevant experience or comments" onChange={(event) => updateFormData({...formData, comment: event.target.value})} />
+                    </Col>
+                </Row>
+                <Row className='py-2'>
                     <Col><Button variant="primary" onClick={() => {submitForm(formData, slug); updateScreen("SUBMITTED")}}>Submit</Button></Col>
                 </Row>
             </Container>

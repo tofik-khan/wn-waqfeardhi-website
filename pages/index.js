@@ -87,7 +87,7 @@ export default function Page() {
         <Container>
             <h2>TextArea</h2>
             <Row>
-                <Col xs={6}><TextArea label="TextArea Label" onChange={(event) => console.log(event.target.checked)} isError={true}/></Col>
+                <Col xs={6}><TextArea label="TextArea Label" onChange={(event) => console.log(event.target.value)} isError={true}/></Col>
             </Row>
         </Container>
     </>);
