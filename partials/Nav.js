@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import logomark from "/public/images/wn-logomark.png";
 import Button from "../components/Button";
 
 const StyledNavBar = styled(Navbar)`
@@ -23,7 +24,7 @@ export const Navigation = () => {
       <StyledNavBar fixed="top" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">
-            <Image src="/images/wn-logomark.png" width={250} height={48} />
+            <Image src={logomark} width={250} />
           </Navbar.Brand>
           <Navbar.Toggle>
             <Hamburger toggled={isOpen} toggle={setOpen} />
