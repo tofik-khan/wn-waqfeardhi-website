@@ -7,6 +7,7 @@ import Chip from "../components/Chip"
 import Button from "../components/Button"
 
 import { getData, TITLE, SUBTITLE, DESCRIPTION, SLUG, TAGS } from "./api/get-listings-data";
+import { Navigation } from "../partials/Nav";
 
 const displayChips =  (tagArray) => {
     const tags = tagArray.split(',');
@@ -21,25 +22,36 @@ export default function Page () {
     const listings = getData();
 
     return (
-        <>
-            <h1 className="py-5 text-center">Job Postings</h1>
-            <Container>
-                <Row>
-                    {listings.map((listing) => {
-                        return ( <Col md={6} key={listing[SLUG]} className="pt-3">
-                            <Card >
-                                <Card.Heading>{listing[TITLE]}</Card.Heading>
-                                <Card.SubHeading>{listing[SUBTITLE]}</Card.SubHeading>
-                                <Card.Body>
-                                    <p>{listing[DESCRIPTION]}</p>
-                                    <div>{displayChips(listing[TAGS])}</div>
-                                    <div className="pt-2"><Button variant="primary" size="small" href={`/listings/${listing[SLUG]}`}>Test Button</Button></div>
-                                </Card.Body>
-                            </Card>
-                        </Col>)
-                    })}
-                </Row>
-            </Container>
-        </>
-    )
+      <>
+        <Navigation />
+        <h1 className="py-5 text-center">Job Postings</h1>
+        <Container>
+          <Row>
+            {listings.map((listing) => {
+              return (
+                <Col md={6} key={listing[SLUG]} className="pt-3">
+                  <Card>
+                    <Card.Heading>{listing[TITLE]}</Card.Heading>
+                    <Card.SubHeading>{listing[SUBTITLE]}</Card.SubHeading>
+                    <Card.Body>
+                      <p>{listing[DESCRIPTION]}</p>
+                      <div>{displayChips(listing[TAGS])}</div>
+                      <div className="pt-2">
+                        <Button
+                          variant="primary"
+                          size="small"
+                          href={`/listings/${listing[SLUG]}`}
+                        >
+                          Test Button
+                        </Button>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      </>
+    );
 }
