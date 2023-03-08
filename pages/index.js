@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Banner from "../components/Banner";
 import { Heading2, Paragraph } from "../components/Text";
 import Button from "../components/Button";
+import OpportunityCard from "../partials/OppyCard";
 
 export default function Page() {
   return (
@@ -36,6 +37,22 @@ export default function Page() {
           </Row>
         </Container>
       </Banner>
+      <Container>
+        <Row>
+          <Col>
+            <Heading2 align={"center"}>Possible Opportunities</Heading2>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={6} md={4} lg={3}>
+            <OpportunityCard
+              image="/icons/code-regular.svg"
+              heading="Web Development"
+              content="lorem ipsum dolor sit amet conssectiur"
+            />
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
