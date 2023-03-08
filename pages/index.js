@@ -10,6 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../components/Card";
 import { Navigation } from "../partials/Nav";
+import Paragraph from "../components/Text";
 
 export default function Page() {
   const dropdownOptions = [
@@ -152,6 +153,14 @@ export default function Page() {
               onChange={(event) => console.log(event.target.value)}
               isError={true}
             />
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <h2>Text / Paragraph</h2>
+        <Row>
+          <Col xs={6}>
+            <Paragraph>This is a test Paragraph</Paragraph>
           </Col>
         </Row>
       </Container>
