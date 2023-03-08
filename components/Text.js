@@ -1,3 +1,5 @@
+import styled from "styled-components";
+
 const StyledParagraph = styled.p`
   font-family: "Lato";
   font-style: normal;
@@ -7,6 +9,6 @@ const StyledParagraph = styled.p`
   text-align: ${(props) => props.align};
 `;
 
-export default function Paragraph({ align }) {
-  return <StyledParagraph align={align} />;
+export default function Paragraph({ align, children }) {
+  return <StyledParagraph align={align}>{children}</StyledParagraph>;
 }
