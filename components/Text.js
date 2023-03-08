@@ -38,3 +38,17 @@ const StyledHeading2 = styled.h2`
 export function Heading2({ align, children }) {
   return <StyledHeading2 align={align}>{children}</StyledHeading2>;
 }
+
+const StyledHeading3 = styled.h3`
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 24px;
+  text-align: ${(props) => (props.align ? props.align : "initial")};
+  text-decoration: underline #607eeb 3px;
+`;
+
+export function Heading3({ align, children }) {
+  return <StyledHeading3 align={align}>{children}</StyledHeading3>;
+}

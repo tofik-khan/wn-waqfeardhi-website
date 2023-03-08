@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../components/Card";
 import { Navigation } from "../partials/Nav";
-import { Heading1, Heading2, Paragraph } from "../components/Text";
+import { Heading1, Heading2, Heading3, Paragraph } from "../components/Text";
 
 export default function Page() {
   const dropdownOptions = [
@@ -176,6 +176,12 @@ export default function Page() {
             <Heading2>This is a test Heading2</Heading2>
             <h3>Centered Heading2</h3>
             <Heading2 align={"center"}>This is a centered Heading2</Heading2>
+          </Col>
+          <Col xs={6}>
+            <h3>Standard Heading3</h3>
+            <Heading3>This is a test Heading2</Heading3>
+            <h3>Centered Heading3</h3>
+            <Heading3 align={"center"}>This is a centered Heading2</Heading3>
           </Col>
         </Row>
       </Container>
