@@ -46,8 +46,8 @@ export default function Page() {
           </Col>
         </Row>
         <Row>
-          {opportunities.map((element) => (
-            <Col xs={6} md={4} lg={3} className="mt-5">
+          {opportunities.map((element, index) => (
+            <Col xs={6} md={4} lg={3} className="mt-5" key={index}>
               <OpportunityCard
                 image={element.image}
                 heading={element.heading}
@@ -55,6 +55,37 @@ export default function Page() {
               />
             </Col>
           ))}
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <Heading2 align={"center"}>Our Sponsors</Heading2>
+          </Col>
+        </Row>
+        <Row>
+          <Col>Carousel</Col>
+        </Row>
+        <Row>
+          <Col>
+            <Paragraph align={"center"}>
+              Be a catalyst for spiritual, personal & professinal growth -
+              become a sponsor of Waqf-e-Arzi projects today!
+            </Paragraph>
+          </Col>
+        </Row>
+        <Row className="justify-content-center py-3">
+          <Col xs={"auto"}>
+            <Button
+              variant={"primary"}
+              size={"large"}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeHrX5G_aHNlpF8TQqBxU8L19CmHV9s2K_OKZUMm-jnJjz04A/viewform?pli=1"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Become a Sponsor
+            </Button>
+          </Col>
         </Row>
       </Container>
     </>
