@@ -60,7 +60,7 @@ export default function Page() {
           ))}
         </Row>
       </Container>
-      <Container>
+      <Container className="mt-5 py-5">
         <Row>
           <Col>
             <Heading2 align={"center"}>Our Sponsors</Heading2>
