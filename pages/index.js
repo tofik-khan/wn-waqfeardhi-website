@@ -170,6 +170,8 @@ export default function Page() {
             <Paragraph>This is a test Paragraph</Paragraph>
             <h3>Centered Paragraph</h3>
             <Paragraph align={"center"}>This is a test Paragraph</Paragraph>
+            <h3>Incognito Paragraph</h3>
+            <Paragraph incognito={true}>This is a test Paragraph</Paragraph>
           </Col>
           <Col xs={6}>
             <h3>Standard Heading2</h3>

@@ -7,10 +7,15 @@ const StyledParagraph = styled.p`
   font-size: 20px;
   line-height: 24px;
   text-align: ${(props) => (props.align ? props.align : "initial")};
+  color: ${(props) => (props.incognito ? "#949697" : "initial")};
 `;
 
-export function Paragraph({ align, children }) {
-  return <StyledParagraph align={align}>{children}</StyledParagraph>;
+export function Paragraph({ align, incognito, children }) {
+  return (
+    <StyledParagraph align={align} incognito={incognito}>
+      {children}
+    </StyledParagraph>
+  );
 }
 
 const StyledHeading1 = styled.h1`
