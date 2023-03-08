@@ -8,8 +8,8 @@ const StyledIconContainer = styled.div`
   height: 60px;
 `;
 
-const StyledHeadingContainer = styled(Heading3)`
-  margin-bottom: 20px;
+const StyledSpacer = styled.div`
+  height: 20px;
 `;
 
 export default function OpportunityCard({ image, heading, content }) {
@@ -24,9 +24,8 @@ export default function OpportunityCard({ image, heading, content }) {
           }}
         />
       </StyledIconContainer>
-      <StyledHeadingContainer align={"center"}>
-        {heading}
-      </StyledHeadingContainer>
+      <Heading3 align={"center"}>{heading}</Heading3>
+      <StyledSpacer />
       <Paragraph align={"center"}>{content}</Paragraph>
     </>
   );
