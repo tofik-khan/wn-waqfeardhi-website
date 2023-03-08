@@ -5,6 +5,9 @@ import Col from "react-bootstrap/Col";
 import Banner from "../components/Banner";
 import { Heading2, Paragraph } from "../components/Text";
 import Button from "../components/Button";
+import OpportunityCard from "../partials/OppyCard";
+
+const opportunities = require("/content/oppy.json");
 
 export default function Page() {
   return (
@@ -36,6 +39,24 @@ export default function Page() {
           </Row>
         </Container>
       </Banner>
+      <Container className="mt-5 py-5">
+        <Row>
+          <Col>
+            <Heading2 align={"center"}>Possible Opportunities</Heading2>
+          </Col>
+        </Row>
+        <Row>
+          {opportunities.map((element) => (
+            <Col xs={6} md={4} lg={3} className="mt-5">
+              <OpportunityCard
+                image={element.image}
+                heading={element.heading}
+                content={element.content}
+              />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </>
   );
 }

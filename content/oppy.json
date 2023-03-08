@@ -1,0 +1,42 @@
+[
+    {
+        "image": "/icons/code-regular.svg",
+        "heading": "Web Development",
+        "content": "A web development internship using React and WordPress involves learning how to build dynamic and responsive web applications and websites."
+    },
+    {
+        "image": "/icons/mobile-button-light.svg",
+        "heading": "App Development",
+        "content": "An app development internship for iOS and Android involves learning how to create and deploy mobile applications using native or hybrid technologies."
+    },
+    {
+        "image": "/icons/pen-to-square-light.svg",
+        "heading": "Content Assistance",
+        "content": "A content assistance internship for OpenQuran.com involves helping with data mapping for the app, including organizing and structuring content for optimal user experience."
+    },
+    {
+        "image": "/icons/headphones-simple-light.svg",
+        "heading": "Audiobooks",
+        "content": "An audiobook internship involves creating or editing English/Urdu audiobooks, helping with narration, post-production editing, and quality assurance."
+    },
+    {
+        "image": "/icons/books-light.svg",
+        "heading": "EBooks",
+        "content": "An ebooks internship involves creating digital books for Jammat-e-Ahmadiyya literature, including formatting, layout design, and publishing on various digital platforms."
+    },
+    {
+        "image": "/icons/pen-paintbrush-light.svg",
+        "heading": "Graphic Design",
+        "content": "A graphic design internship involves utilizing UI/UX principles, Photoshop, and InDesign to create visually appealing designs for websites, apps, and marketing materials."
+    },
+    {
+        "image": "/icons/photo-film-music-light.svg",
+        "heading": "Social Media",
+        "content": "A social media internship involves creating and scheduling content for various social media platforms, analyzing engagement data, and developing social media strategies for increased brand awareness."
+    },
+    {
+        "image": "/icons/camcorder-light.svg",
+        "heading": "Motion Graphic",
+        "content": "A motion graphics internship involves participating in video production, editing, and designing animated graphics and visual effects to enhance video content and convey messages effectively."
+    }
+]
