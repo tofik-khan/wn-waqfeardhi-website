@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "../components/Card";
 import { Navigation } from "../partials/Nav";
-import Paragraph from "../components/Text";
+import { Heading1, Heading2, Heading3, Paragraph } from "../components/Text";
 
 export default function Page() {
   const dropdownOptions = [
@@ -157,10 +157,33 @@ export default function Page() {
         </Row>
       </Container>
       <Container>
-        <h2>Text / Paragraph</h2>
+        <h2>Text</h2>
         <Row>
           <Col xs={6}>
+            <h3>Heading 1</h3>
+            <Heading1>This is a test Heading1</Heading1>
+            <h3>Centered Heading</h3>
+            <Heading1 align={"center"}>This is a centered Heading1</Heading1>
+          </Col>
+          <Col xs={6}>
+            <h3>Standard Paragraph</h3>
             <Paragraph>This is a test Paragraph</Paragraph>
+            <h3>Centered Paragraph</h3>
+            <Paragraph align={"center"}>This is a test Paragraph</Paragraph>
+            <h3>Incognito Paragraph</h3>
+            <Paragraph incognito={true}>This is a test Paragraph</Paragraph>
+          </Col>
+          <Col xs={6}>
+            <h3>Standard Heading2</h3>
+            <Heading2>This is a test Heading2</Heading2>
+            <h3>Centered Heading2</h3>
+            <Heading2 align={"center"}>This is a centered Heading2</Heading2>
+          </Col>
+          <Col xs={6}>
+            <h3>Standard Heading3</h3>
+            <Heading3>This is a test Heading2</Heading3>
+            <h3>Centered Heading3</h3>
+            <Heading3 align={"center"}>This is a centered Heading2</Heading3>
           </Col>
         </Row>
       </Container>
