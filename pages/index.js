@@ -6,6 +6,9 @@ import Banner from "../components/Banner";
 import { Heading2, Paragraph } from "../components/Text";
 import Button from "../components/Button";
 import OpportunityCard from "../partials/OppyCard";
+import Marquee from "react-fast-marquee";
+import Image from "next/image";
+import SponsorImage from "../partials/SponsorImage";
 
 const opportunities = require("/content/oppy.json");
 
@@ -63,10 +66,25 @@ export default function Page() {
             <Heading2 align={"center"}>Our Sponsors</Heading2>
           </Col>
         </Row>
-        <Row>
-          <Col>Carousel</Col>
+        <Row className="py-5">
+          <Col>
+            <Marquee>
+              <SponsorImage image="/sponsors/amc.png" />
+              <SponsorImage image="/sponsors/amla.png" />
+              <SponsorImage image="/sponsors/amma.jpeg" />
+              <SponsorImage image="/sponsors/ansar.png" />
+              <SponsorImage image="/sponsors/atfal.png" />
+              <SponsorImage image="/sponsors/wn.png" />
+              <SponsorImage image="/sponsors/lajna.png" />
+              <SponsorImage image="/sponsors/awsa.jpeg" />
+              <SponsorImage image="/sponsors/humanity-first.jpeg" />
+              <SponsorImage image="/sponsors/iaaae.png" />
+              <SponsorImage image="/sponsors/amc-usa.png" />
+              <SponsorImage image="/sponsors/wn.png" />
+            </Marquee>
+          </Col>
         </Row>
-        <Row>
+        <Row className="py-3">
           <Col>
             <Paragraph align={"center"}>
               Be a catalyst for spiritual, personal & professinal growth -
