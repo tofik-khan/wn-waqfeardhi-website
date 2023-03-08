@@ -6,6 +6,9 @@ import Banner from "../components/Banner";
 import { Heading2, Paragraph } from "../components/Text";
 import Button from "../components/Button";
 import OpportunityCard from "../partials/OppyCard";
+import Marquee from "react-fast-marquee";
+import Image from "next/image";
+import SponsorImage from "../partials/SponsorImage";
 
 const opportunities = require("/content/oppy.json");
 
@@ -46,8 +49,8 @@ export default function Page() {
           </Col>
         </Row>
         <Row>
-          {opportunities.map((element) => (
-            <Col xs={6} md={4} lg={3} className="mt-5">
+          {opportunities.map((element, index) => (
+            <Col xs={6} md={4} lg={3} className="mt-5" key={index}>
               <OpportunityCard
                 image={element.image}
                 heading={element.heading}
@@ -55,6 +58,52 @@ export default function Page() {
               />
             </Col>
           ))}
+        </Row>
+      </Container>
+      <Container className="mt-5 py-5">
+        <Row>
+          <Col>
+            <Heading2 align={"center"}>Our Sponsors</Heading2>
+          </Col>
+        </Row>
+        <Row className="py-5">
+          <Col>
+            <Marquee>
+              <SponsorImage image="/sponsors/amc.png" />
+              <SponsorImage image="/sponsors/amla.png" />
+              <SponsorImage image="/sponsors/amma.jpeg" />
+              <SponsorImage image="/sponsors/ansar.png" />
+              <SponsorImage image="/sponsors/atfal.png" />
+              <SponsorImage image="/sponsors/wn.png" />
+              <SponsorImage image="/sponsors/lajna.png" />
+              <SponsorImage image="/sponsors/awsa.jpeg" />
+              <SponsorImage image="/sponsors/humanity-first.jpeg" />
+              <SponsorImage image="/sponsors/iaaae.png" />
+              <SponsorImage image="/sponsors/amc-usa.png" />
+              <SponsorImage image="/sponsors/wn.png" />
+            </Marquee>
+          </Col>
+        </Row>
+        <Row className="py-3">
+          <Col>
+            <Paragraph align={"center"}>
+              Be a catalyst for spiritual, personal & professinal growth -
+              become a sponsor of Waqf-e-Arzi projects today!
+            </Paragraph>
+          </Col>
+        </Row>
+        <Row className="justify-content-center py-3">
+          <Col xs={"auto"}>
+            <Button
+              variant={"primary"}
+              size={"large"}
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeHrX5G_aHNlpF8TQqBxU8L19CmHV9s2K_OKZUMm-jnJjz04A/viewform?pli=1"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Become a Sponsor
+            </Button>
+          </Col>
         </Row>
       </Container>
     </>
