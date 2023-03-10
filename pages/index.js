@@ -9,6 +9,7 @@ import OpportunityCard from "../partials/OppyCard";
 import Marquee from "react-fast-marquee";
 import Image from "next/image";
 import SponsorImage from "../partials/SponsorImage";
+import Footer from "../partials/Footer";
 
 const opportunities = require("/content/oppy.json");
 
@@ -106,6 +107,7 @@ export default function Page() {
           </Col>
         </Row>
       </Container>
+      <Footer />
     </>
   );
 }
