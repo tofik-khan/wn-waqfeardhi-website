@@ -3,13 +3,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Banner from "../components/Banner";
-import { Heading2, Paragraph } from "../components/Text";
+import { Heading1, Heading2, Paragraph } from "../components/Text";
 import Button from "../components/Button";
 import OpportunityCard from "../partials/OppyCard";
 import Marquee from "react-fast-marquee";
-import Image from "next/image";
 import SponsorImage from "../partials/SponsorImage";
 import Footer from "../partials/Footer";
+import HomepageCarousel from "../partials/HomepageCarousel";
 
 const opportunities = require("/content/oppy.json");
 
@@ -17,6 +17,7 @@ export default function Page() {
   return (
     <>
       <Navigation />
+      <HomepageCarousel />
       <Banner variant="light">
         <Container>
           <Row>
