@@ -89,31 +89,6 @@ export default function Page() {
           );
         }
       })}
-      <StyledPorjectContainer>
-        <Row className="align-items-center">
-          <Col lg={6}>
-            <Heading2>Proof Read Books of Promised Messiah</Heading2>
-            <Paragraph incognito={true}>21 Days / Khuddam Only</Paragraph>
-            <Paragraph incognito={true}>
-              Available to Remote & In-person candidates
-            </Paragraph>
-            <Paragraph>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa
-              mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien
-              fringilla, mattis ligula consectetur, ultrices mauris. Maecenas
-              vitae mattis tellus. Nullam quis imperdiet augue. Vestibulum
-              auctor ornare leo, non suscipit magna interdum eu. Curabitur
-              pellentesque nibh nibh, at maximus ante...
-            </Paragraph>
-            <Button variant="primary" size="large">
-              Learn More
-            </Button>
-          </Col>
-          <Col lg={6}>
-            <StyledImage image="https://picsum.photos/700/300"></StyledImage>
-          </Col>
-        </Row>
-      </StyledPorjectContainer>
     </>
   );
 }
