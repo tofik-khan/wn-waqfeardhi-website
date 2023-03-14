@@ -47,7 +47,7 @@ export default function Page() {
       <Container className="mt-5 py-5">
         <Row>
           <Col>
-            <Heading2 align={"center"}>Possible Opportunities</Heading2>
+            <Heading2 align={"center"}>Volunteering Areas</Heading2>
           </Col>
         </Row>
         <Row>
