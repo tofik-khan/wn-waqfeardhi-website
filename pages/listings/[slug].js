@@ -20,6 +20,8 @@ import Dropdown from '/components/Dropdown';
 import Button from "/components/Button";
 import ToggleSwitch from '/components/ToggleSwitch';
 import TextArea from '/components/TextArea';
+import { Navigation } from "../../partials/Nav";
+import Footer from "../../partials/Footer";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -67,6 +69,7 @@ export default function Page () {
   if (screen === "FORM") {
     return (
       <>
+        <Navigation />
         <h1 className="py-5 text-center">{selectedListing[TITLE]}</h1>
         <p className="text-center">{selectedListing[SUBTITLE]}</p>
         <Container>
@@ -167,6 +170,7 @@ export default function Page () {
             </Col>
           </Row>
         </StyledContainer>
+        <Footer />
       </>
     );
   } else if (screen === "SUBMITTED") {
