@@ -5,13 +5,29 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import { getData, TITLE, SUBTITLE, DESCRIPTION, SLUG, TAGS } from "/pages/api/get-listings-data";
+import styled from "styled-components";
+
+import {
+  getData,
+  TITLE,
+  SUBTITLE,
+  DESCRIPTION,
+  SLUG,
+} from "/pages/api/get-listings-data";
 
 import TextInput from "/components/TextInput";
 import Dropdown from '/components/Dropdown';
 import Button from "/components/Button";
 import ToggleSwitch from '/components/ToggleSwitch';
 import TextArea from '/components/TextArea';
+
+const StyledContainer = styled(Container)`
+  width: 700px;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 export default function Page () {
   const router = useRouter();
@@ -58,7 +74,7 @@ export default function Page () {
             <Col md={10}>{selectedListing[DESCRIPTION]}</Col>
           </Row>
         </Container>
-        <Container className="py-5">
+        <StyledContainer className="py-5">
           <Row>
             <h2>Submit Form</h2>
           </Row>
@@ -150,7 +166,7 @@ export default function Page () {
               </Button>
             </Col>
           </Row>
-        </Container>
+        </StyledContainer>
       </>
     );
   } else if (screen === "SUBMITTED") {
