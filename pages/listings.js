@@ -52,10 +52,10 @@ export default function Page() {
     <>
       <Navigation />
       <h1 className="py-5 text-center">Job Postings</h1>
-      {listings.map((element) => {
+      {listings.map((element, index) => {
         if (element[PUBLISHED] === "TRUE") {
           return (
-            <StyledPorjectContainer key={element.slug}>
+            <StyledPorjectContainer key={index}>
               <Row className="align-items-center">
                 <Col lg={6}>
                   <Heading2>{element[TITLE]}</Heading2>
