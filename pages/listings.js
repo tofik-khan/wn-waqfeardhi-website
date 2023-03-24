@@ -55,7 +55,7 @@ export default function Page() {
       {listings.map((element) => {
         if (element[PUBLISHED] === "TRUE") {
           return (
-            <StyledPorjectContainer>
+            <StyledPorjectContainer key={element.slug}>
               <Row className="align-items-center">
                 <Col lg={6}>
                   <Heading2>{element[TITLE]}</Heading2>
