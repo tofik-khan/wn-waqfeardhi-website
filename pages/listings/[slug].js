@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col"
 import styled from "styled-components";
 
 import {
-  getData,
   TITLE,
   SUBTITLE,
   DESCRIPTION,
@@ -16,10 +15,10 @@ import {
 } from "/pages/api/get-listings-data";
 
 import TextInput from "/components/TextInput";
-import Dropdown from '/components/Dropdown';
+import Dropdown from "/components/Dropdown";
 import Button from "/components/Button";
-import ToggleSwitch from '/components/ToggleSwitch';
-import TextArea from '/components/TextArea';
+import ToggleSwitch from "/components/ToggleSwitch";
+import TextArea from "/components/TextArea";
 import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
 
@@ -31,7 +30,7 @@ const StyledContainer = styled(Container)`
   }
 `;
 
-export default function Page () {
+export default function Page({ data }) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -44,24 +43,17 @@ export default function Page () {
     { value: "Nasirat", label: "Nasirat-ul-Ahmadiyya" },
   ];
 
-  const [listings, updateListings] = useState([]);
   const [formData, updateFormData] = useState({
     jammat: jammatOptions[0].value,
     aux: auxiliaryOptions[0].value,
   });
   const [screen, updateScreen] = useState("FORM");
 
-  useEffect(() => {
-    updateListings(getData());
-  }, []);
-
-  if (listings.length === 0) {
+  if (data.length === 0) {
     return <h1>Loading</h1>;
   }
 
-  const selectedListing = listings.filter(
-    (element) => element[SLUG] === slug
-  )[0];
+  const selectedListing = data.filter((element) => element[SLUG] === slug)[0];
   if (selectedListing.length === 0) {
     return <h1>Listing not Found</h1>;
   }
@@ -185,6 +177,11 @@ export default function Page () {
       </>
     );
   }
+}
+
+export async function getServerSideProps() {
+  const data = require("/content/listings.json");
+  return { props: { data } };
 }
 
 function checkFirstnameError(formData) {
