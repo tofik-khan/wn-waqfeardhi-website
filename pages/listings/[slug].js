@@ -156,8 +156,8 @@ export default function Page () {
               />
             </Col>
           </Row>
-          <Row className="py-2">
-            <Col>
+          <Row className="py-2 justify-content-center">
+            <Col md={3}>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -166,6 +166,11 @@ export default function Page () {
                 }}
               >
                 Submit
+              </Button>
+            </Col>
+            <Col md={3}>
+              <Button variant="secondary" href="/listings">
+                Cancel
               </Button>
             </Col>
           </Row>
