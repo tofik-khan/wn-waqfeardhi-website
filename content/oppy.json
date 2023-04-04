@@ -38,5 +38,25 @@
         "image": "/icons/camcorder-light.svg",
         "heading": "Motion Graphic",
         "content": "A motion graphics internship involves participating in video production, editing, and designing animated graphics and visual effects to enhance video content and convey messages effectively."
+    },
+    {
+        "image": "/icons/user-graduate-light.svg",
+        "heading": "Education",
+        "content": "Empowering the next generation through personalized teaching and tutoring experiences. #EducationInternship #TeachAndTutor #EmpowerFuture"
+    },
+    {
+        "image": "/icons/house-tsunami-light.svg",
+        "heading": "Disaster Relief",
+        "content": "Be the helping hand in times of crisis - Join our Disaster Relief Internship and make a real difference in the lives of those in need."
+    },
+    {
+        "image": "/icons/user-helmet-safety-light.svg",
+        "heading": "Infrastructure Development",
+        "content": "Building a brighter future together - Join our Infrastructure Development Internship and work alongside IAAAE and Humanity First to make a lasting impact."
+    },
+    {
+        "image": "/icons/phone-office-light.svg",
+        "heading": "Administration",
+        "content": "Get your foot in the door of the business world - Join our Administration Internship and gain valuable experience in phone calls, bookkeeping, and more."
     }
 ]

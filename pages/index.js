@@ -47,12 +47,12 @@ export default function Page() {
       <Container className="mt-5 py-5">
         <Row>
           <Col>
-            <Heading2 align={"center"}>Possible Opportunities</Heading2>
+            <Heading2 align={"center"}>Volunteering Areas</Heading2>
           </Col>
         </Row>
         <Row>
           {opportunities.map((element, index) => (
-            <Col xs={6} md={4} lg={3} className="mt-5" key={index}>
+            <Col md={4} lg={3} className="mt-5" key={index}>
               <OpportunityCard
                 image={element.image}
                 heading={element.heading}

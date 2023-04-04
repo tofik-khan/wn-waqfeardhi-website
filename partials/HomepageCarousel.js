@@ -5,7 +5,7 @@ import { Paragraph } from "../components/Text";
 
 const StyledImageContainer = styled.div`
   position: relative;
-  height: 500px;
+  height: 400px;
   width: 100%;
   border-radius: 8px;
 `;
@@ -13,8 +13,8 @@ const StyledImageContainer = styled.div`
 export default function HomepageCarousel() {
   return (
     <Container className="my-2 py-5">
-      <Row>
-        <Col>
+      <Row className="justify-content-center">
+        <Col xs={8}>
           <Carousel variant="dark">
             <Carousel.Item>
               <StyledImageContainer>
