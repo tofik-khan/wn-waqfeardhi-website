@@ -5,7 +5,6 @@ import Col from "react-bootstrap/Col";
 import Button from "../components/Button";
 
 import {
-  getData,
   TITLE,
   SUBTITLE,
   DESCRIPTION,
@@ -45,14 +44,12 @@ function sanitizeProjectDescription(description) {
   return description.trim().slice(0, 150) + elipsis;
 }
 
-export default function Page() {
-  const listings = getData();
-
+export default function Page({ data }) {
   return (
     <>
       <Navigation />
       <h1 className="py-5 text-center">Job Postings</h1>
-      {listings.map((element, index) => {
+      {data.map((element, index) => {
         if (element[PUBLISHED] === "TRUE") {
           return (
             <StyledPorjectContainer key={index}>
@@ -91,4 +88,9 @@ export default function Page() {
       })}
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const data = require("/content/listings.json").slice(1);
+  return { props: { data } };
 }
