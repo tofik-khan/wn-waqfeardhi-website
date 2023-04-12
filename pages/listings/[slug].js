@@ -46,8 +46,8 @@ export default function Page({ data }) {
   ];
 
   const [formData, updateFormData] = useState({
-    firstname: "",
-    lastname: "",
+    firstname: null,
+    lastname: null,
     jammat: jammatOptions[0].value,
     aux: auxiliaryOptions[0].value,
   });
@@ -88,6 +88,7 @@ export default function Page({ data }) {
                 onChange={(event) =>
                   updateFormData({ ...formData, firstname: event.target.value })
                 }
+                required
               />
             </Col>
             <Col sm={6}>
@@ -98,6 +99,7 @@ export default function Page({ data }) {
                 onChange={(event) =>
                   updateFormData({ ...formData, lastname: event.target.value })
                 }
+                required
               />
             </Col>
           </Row>
@@ -110,6 +112,7 @@ export default function Page({ data }) {
                 onChange={(event) =>
                   updateFormData({ ...formData, email: event.target.value })
                 }
+                required
               />
             </Col>
             <Col sm={6}>
@@ -227,8 +230,6 @@ function submitForm(formData, slug, updateShowModal) {
   const hasAllFields = Object.values(formData).every(
     (value) => value !== "" && value !== null
   );
-
-  console.log(hasAllFields);
 
   if (!hasAllFields) {
     updateShowModal(true);

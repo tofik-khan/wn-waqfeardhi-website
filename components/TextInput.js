@@ -46,14 +46,40 @@ const StyledMessage = styled.span`
 `
 
 // Todo: Convert isError & errorMessage to an object { error: true; message: "error Message"}
-function Input ({label, width, placeholder, onChange, isError, errorMessage}) {
-    return (
+function Input({
+  label,
+  width,
+  placeholder,
+  onChange,
+  isError,
+  errorMessage,
+  required,
+}) {
+  return (
+    <>
+      {label && (
         <>
-                { label && <><StyledLabel isError={isError} htmlFor="input-field">{label}</StyledLabel>  <br /> </>}
-                <StyledInput width={width} type="text" placeholder={placeholder} onChange={onChange} isError={isError}/><br/>
-                { isError && <StyledMessage isError={isError}>{errorMessage || "There is some issue, check the input"}</StyledMessage> }
+          <StyledLabel isError={isError} htmlFor="input-field">
+            {label} {required && <span style={{ color: "red" }}>*</span>}
+          </StyledLabel>{" "}
+          <br />{" "}
         </>
-    )
+      )}
+      <StyledInput
+        width={width}
+        type="text"
+        placeholder={placeholder}
+        onChange={onChange}
+        isError={isError}
+      />
+      <br />
+      {isError && (
+        <StyledMessage isError={isError}>
+          {errorMessage || "There is some issue, check the input"}
+        </StyledMessage>
+      )}
+    </>
+  );
 }
 
 export default Input;
