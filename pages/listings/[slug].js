@@ -12,7 +12,11 @@ import {
   SUBTITLE,
   DESCRIPTION,
   SLUG,
-} from "/pages/api/get-listings-data";
+  IMAGE,
+  DURATION,
+  AUDIENCE,
+  PUBLISHED,
+} from "../api/get-listings-data";
 
 import TextInput from "/components/TextInput";
 import Dropdown from "/components/Dropdown";
@@ -22,7 +26,7 @@ import TextArea from "/components/TextArea";
 import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
 import { Modal } from "react-bootstrap";
-import { Paragraph } from "../../components/Text";
+import { Heading1, Paragraph } from "../../components/Text";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -30,6 +34,14 @@ const StyledContainer = styled(Container)`
   @media only screen and (max-width: 768px) {
     width: 100%;
   }
+`;
+
+const StyledImage = styled.div`
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-image: url(${(props) => props.url});
+  border-radius: 4px;
 `;
 
 export default function Page({ data }) {
@@ -61,15 +73,26 @@ export default function Page({ data }) {
 
   const selectedListing = data.filter((element) => element[SLUG] === slug)[0];
   if (selectedListing.length === 0) {
-    return <h1>Listing not Found</h1>;
+    return <Heading1>Listing not Found</Heading1>;
   }
 
   if (screen === "FORM") {
     return (
       <>
         <Navigation />
-        <h1 className="py-5 text-center">{selectedListing[TITLE]}</h1>
-        <p className="text-center">{selectedListing[SUBTITLE]}</p>
+        <Container>
+          <Row className="justify-content-center">
+            <Col md={6}>
+              <StyledImage url={selectedListing[IMAGE]} />
+            </Col>
+          </Row>
+        </Container>
+        <Heading1 className="py-5 text-center">
+          {selectedListing[TITLE]}
+        </Heading1>
+        <Paragraph className="text-center">
+          {selectedListing[SUBTITLE]}
+        </Paragraph>
         <Container>
           <Row className="justify-content-center">
             <Col md={10}>{selectedListing[DESCRIPTION]}</Col>
