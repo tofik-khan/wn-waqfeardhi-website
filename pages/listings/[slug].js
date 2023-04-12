@@ -21,6 +21,8 @@ import ToggleSwitch from "/components/ToggleSwitch";
 import TextArea from "/components/TextArea";
 import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
+import { Modal } from "react-bootstrap";
+import { Paragraph } from "../../components/Text";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -44,10 +46,14 @@ export default function Page({ data }) {
   ];
 
   const [formData, updateFormData] = useState({
+    firstname: "",
+    lastname: "",
     jammat: jammatOptions[0].value,
     aux: auxiliaryOptions[0].value,
   });
   const [screen, updateScreen] = useState("FORM");
+
+  const [showModal, updateShowModal] = useState(false);
 
   if (data.length === 0) {
     return <h1>Loading</h1>;
@@ -71,7 +77,7 @@ export default function Page({ data }) {
         </Container>
         <StyledContainer className="py-5">
           <Row>
-            <h2>Submit Form</h2>
+            <h2>Submit Application</h2>
           </Row>
           <Row className="py-2">
             <Col sm={6}>
@@ -152,9 +158,10 @@ export default function Page({ data }) {
             <Col md={3}>
               <Button
                 variant="primary"
-                onClick={() => {
-                  submitForm(formData, slug);
-                  updateScreen("SUBMITTED");
+                onClick={async () => {
+                  if (submitForm(formData, slug, updateShowModal)) {
+                    updateScreen("SUBMITTED");
+                  }
                 }}
               >
                 Submit
@@ -167,6 +174,30 @@ export default function Page({ data }) {
             </Col>
           </Row>
         </StyledContainer>
+        <Modal
+          size="lg"
+          show={showModal}
+          onHide={() => updateShowModal(false)}
+          aria-labelledby="missing-fields-modal"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="missing-field-modal">
+              Oops! We missed something...
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Paragraph>
+              Looks like there is something missing. Remember, all fields are
+              required.
+            </Paragraph>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={() => updateShowModal(false)}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
         <Footer />
       </>
     );
@@ -185,28 +216,39 @@ export async function getServerSideProps() {
 }
 
 function checkFirstnameError(formData) {
-    return formData["firstname"] !== undefined && formData.firstname === "";
+  return formData["firstname"] !== undefined && formData.firstname === "";
 }
 
 function checkLastnameError(formData) {
-    return formData["lastname"] !== undefined && formData.lastname === "";
+  return formData["lastname"] !== undefined && formData.lastname === "";
 }
 
-async function submitForm(formData, slug) {
-    const body = {
-        auth: process.env.API_AUTH_TOKEN,
-        formData: {...formData, slug: slug}
-    }
+function submitForm(formData, slug, updateShowModal) {
+  const hasAllFields = Object.values(formData).every(
+    (value) => value !== "" && value !== null
+  );
 
-    const requestOptions = {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(body)
-    }
+  console.log(hasAllFields);
 
-    fetch("/api/sheets-post", requestOptions)
-        .then((response) => response.json())
-        .then((response) => console.log(response));
-    
+  if (!hasAllFields) {
+    updateShowModal(true);
+    return false;
+  }
 
+  const body = {
+    auth: process.env.API_AUTH_TOKEN,
+    formData: { ...formData, slug: slug },
+  };
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  };
+
+  fetch("/api/sheets-post", requestOptions)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+
+  return true;
 }
