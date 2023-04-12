@@ -139,7 +139,7 @@ export default function Page({ data }) {
             </Col>
           </Row>
           <Row className="py-2 justify-content-center">
-            <Col sm={10}>
+            <Col sm={12}>
               <TextArea
                 label="Share any relevant experience or comments"
                 onChange={(event) =>
