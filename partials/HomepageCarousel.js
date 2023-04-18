@@ -1,11 +1,6 @@
 import styled from "styled-components";
-import Image from "next/image";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
-import { Paragraph } from "../components/Text";
 import Quote from "../components/Quote";
-
-import promisedMessiahImage from "../public/images/promised-messiah.jpg";
-import huzoorImage from "../public/images/huzoor.jpeg";
 
 const StyledImageContainer = styled.div`
   position: relative;
