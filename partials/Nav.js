@@ -7,9 +7,9 @@ import logomark from "/public/images/wn-logomark.png";
 import Button from "../components/Button";
 
 const StyledNavBar = styled(Navbar)`
-  background-color: #19369b;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background-color: #1b998b;
+  padding-top: 15px;
+  padding-bottom: 15px;
 `;
 
 const StyledSpacer = styled.div`
@@ -24,7 +24,7 @@ export const Navigation = () => {
       <StyledNavBar fixed="top" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">
-            <Image src={logomark} width={250} />
+            <Image src={logomark} width={300} />
           </Navbar.Brand>
           <Navbar.Toggle>
             <Hamburger toggled={isOpen} toggle={setOpen} />
