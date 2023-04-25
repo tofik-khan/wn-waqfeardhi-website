@@ -76,9 +76,29 @@ export default function Page({ data }) {
     return <h1>Loading</h1>;
   }
 
-  const selectedListing = data.filter((element) => element[SLUG] === slug)[0];
+  if (data.some((listing) => listing[SLUG] === slug)) {
+    var selectedListing = data.filter((element) => element[SLUG] === slug)[0];
+  } else {
+    return (
+      <>
+        <Navigation />
+        <StyledSubmittedContainer>
+          <Heading1 align={"center"} className="py-5">
+            Oops! Looks like we don't have that project
+          </Heading1>
+          <Paragraph align={"center"} className={"px-2"}>
+            To find all avaiable projects, please use our listings page
+          </Paragraph>
+          <Button variant="primary" href="/listings">
+            Available Projects
+          </Button>
+        </StyledSubmittedContainer>
+        <Footer />
+      </>
+    );
+  }
+
   if (selectedListing.length === 0) {
-    return <Heading1>Listing not Found</Heading1>;
   }
 
   if (screen === "FORM") {
