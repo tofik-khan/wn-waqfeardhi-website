@@ -13,9 +13,6 @@ import {
   DESCRIPTION,
   SLUG,
   IMAGE,
-  DURATION,
-  AUDIENCE,
-  PUBLISHED,
 } from "../api/get-listings-data";
 
 import TextInput from "/components/TextInput";
@@ -42,6 +39,14 @@ const StyledImage = styled.div`
   background-size: cover;
   background-image: url(${(props) => props.url});
   border-radius: 4px;
+`;
+
+const StyledSubmittedContainer = styled.div`
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default function Page({ data }) {
@@ -230,7 +235,21 @@ export default function Page({ data }) {
   } else if (screen === "SUBMITTED") {
     return (
       <>
-        <h1>Submitted</h1>
+        <Navigation />
+        <StyledSubmittedContainer>
+          <Heading1 align={"center"} className="py-5">
+            Submitted
+          </Heading1>
+          <Paragraph align={"center"}>جزاک اللہ</Paragraph>
+          <Paragraph align={"center"} className={"px-2"}>
+            Your information has been submitted, Insha'Allah a member of our
+            team will reach out to you as soon as possible.
+          </Paragraph>
+          <Button variant="primary" href="/">
+            Return Home
+          </Button>
+        </StyledSubmittedContainer>
+        <Footer />
       </>
     );
   }
