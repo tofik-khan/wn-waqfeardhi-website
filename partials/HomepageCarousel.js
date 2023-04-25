@@ -11,7 +11,7 @@ const StyledImageContainer = styled.div`
 
 export default function HomepageCarousel() {
   return (
-    <Container className="my-2 py-5">
+    <Container className="my-2 py-5 d-none d-md-block">
       <Row className="justify-content-center">
         <Col xs={12}>
           <Carousel controls={false} interval={10000}>
