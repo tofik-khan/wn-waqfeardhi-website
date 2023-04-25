@@ -2,52 +2,56 @@ import styled, { css } from "styled-components";
 import Link from "next/link";
 
 const SharedStyle = css`
+  all: unset;
 
-all: unset;
-
-${ props => {
+  ${(props) => {
     // Conditional Styling for anchor links
-    if(props.href) {
-        return `
+    if (props.href) {
+      return `
             display: inline-flex;
             justify-content: center;
             align-items: center;
 
             text-decoration: none;
-        `
+        `;
     }
- }
-}
+  }}
 
-background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#EEEEEE" };
+  background-color: ${(props) =>
+    props.variant === "primary" ? "#6A0136" : "#EEEEEE"};
 
-/* Size */
-height: ${ props => props.size === "small" ? "30px" : "50px" };
+  /* Size */
+  height: ${(props) => (props.size === "small" ? "30px" : "50px")};
 
-/* Padding */
-padding: 0px ${ props => props.size === "small" ? "20px" : "36px" };
+  /* Padding */
+  padding: 0px ${(props) => (props.size === "small" ? "20px" : "36px")};
 
-/* Border */
-border: ${ props => props.variant === "primary" ? "unset" : "solid 1px #AAAAAA" };
-border-radius: 4px;
+  /* Border */
+  border: ${(props) =>
+    props.variant === "primary" ? "unset" : "solid 1px #AAAAAA"};
+  border-radius: 4px;
 
-/* Text */
-color: ${ props => props.variant === "primary" ? "white" : "#6D6D6D" } ;
-font-weight: bold;
-font-size: 16px;
+  /* Text */
+  color: ${(props) => (props.variant === "primary" ? "white" : "#6D6D6D")};
+  font-weight: bold;
+  font-size: 16px;
 
-/* States */
-&:hover {
-    background-color: ${ props => props.variant === "primary" ? "#2B4BBA" : "#CBCBCB" };
+  /* States */
+  &:hover {
+    background-color: ${(props) =>
+      props.variant === "primary" ? "#510129" : "#CBCBCB"};
     cursor: pointer;
-    color: ${ props => props.variant === "primary" ? "white" : "#6D6D6D" } ;
-}
-&:focus {
-    background-color: ${ props => props.variant === "primary" ? "#607EEB" : "#CBCBCB" };
-    border: 2px solid ${ props => props.variant === "primary" ? "#2B4BBA" : "#757575" };
-    box-shadow: 0px 0px 4px 1px ${ props => props.variant === "primary" ? "#2B4BBA" : "#595959" };
-}
-`
+    color: ${(props) => (props.variant === "primary" ? "white" : "#6D6D6D")};
+  }
+  &:focus {
+    background-color: ${(props) =>
+      props.variant === "primary" ? "#14000A" : "#CBCBCB"};
+    outline: 2px solid
+      ${(props) => (props.variant === "primary" ? "#6A0136" : "#757575")};
+    box-shadow: 0px 0px 4px 1px
+      ${(props) => (props.variant === "primary" ? "#6A0136" : "#595959")};
+  }
+`;
 
 const StyledButton = styled.button`
     ${SharedStyle}

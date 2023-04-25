@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "../components/Button";
+import { Heading1 } from "../components/Text";
 
 import {
   TITLE,
@@ -16,6 +17,7 @@ import {
 } from "./api/get-listings-data";
 import { Navigation } from "../partials/Nav";
 import { Heading2, Paragraph } from "../components/Text";
+import Footer from "../partials/Footer";
 
 const StyledPorjectContainer = styled(Container)`
   background: #f4f4f4;
@@ -48,7 +50,7 @@ export default function Page({ data }) {
   return (
     <>
       <Navigation />
-      <h1 className="py-5 text-center">Job Postings</h1>
+      <Heading1 className="py-5 text-center">Available Projects</Heading1>
       {data.map((element, index) => {
         if (element[PUBLISHED] === "TRUE") {
           return (
@@ -86,6 +88,7 @@ export default function Page({ data }) {
           );
         }
       })}
+      <Footer />
     </>
   );
 }

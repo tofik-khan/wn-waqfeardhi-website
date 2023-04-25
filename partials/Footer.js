@@ -5,7 +5,7 @@ import { Paragraph } from "../components/Text";
 const StyledFooterContainer = styled.div`
   width: 100%;
   height: 100px;
-  background-color: #19369b;
+  background-color: #1b998b;
 
   display: flex;
   justify-content: center;

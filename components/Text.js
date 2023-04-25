@@ -11,9 +11,14 @@ const StyledParagraph = styled.p`
     props.incognito ? "#949697" : props.color ? props.color : "initial"};
 `;
 
-export function Paragraph({ align, incognito, color, children }) {
+export function Paragraph({ align, incognito, color, children, className }) {
   return (
-    <StyledParagraph align={align} incognito={incognito} color={color}>
+    <StyledParagraph
+      align={align}
+      incognito={incognito}
+      color={color}
+      className={className}
+    >
       {children}
     </StyledParagraph>
   );
@@ -28,8 +33,12 @@ const StyledHeading1 = styled.h1`
   text-align: ${(props) => (props.align ? props.align : "initial")};
 `;
 
-export function Heading1({ align, children }) {
-  return <StyledHeading1 align={align}>{children}</StyledHeading1>;
+export function Heading1({ align, children, className }) {
+  return (
+    <StyledHeading1 align={align} className={className}>
+      {children}
+    </StyledHeading1>
+  );
 }
 
 const StyledHeading2 = styled.h2`
