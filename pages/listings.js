@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "../components/Button";
+import { Heading1 } from "../components/Text";
 
 import {
   TITLE,
@@ -48,7 +49,7 @@ export default function Page({ data }) {
   return (
     <>
       <Navigation />
-      <h1 className="py-5 text-center">Job Postings</h1>
+      <Heading1 className="py-5 text-center">Available Projects</Heading1>
       {data.map((element, index) => {
         if (element[PUBLISHED] === "TRUE") {
           return (
