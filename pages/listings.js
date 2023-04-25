@@ -17,6 +17,7 @@ import {
 } from "./api/get-listings-data";
 import { Navigation } from "../partials/Nav";
 import { Heading2, Paragraph } from "../components/Text";
+import Footer from "../partials/Footer";
 
 const StyledPorjectContainer = styled(Container)`
   background: #f4f4f4;
@@ -87,6 +88,7 @@ export default function Page({ data }) {
           );
         }
       })}
+      <Footer />
     </>
   );
 }
