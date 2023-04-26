@@ -4,7 +4,7 @@
   "description": "A department specific job portal for internships",
   "main": "index.js",
   "scripts": {
-    "build": "next build && node secretKey.js",
+    "build": "next build && node secretKey.js && node buildtime-data-fetcher.js",
     "dev": "next dev",
     "start": "next start"
   },
