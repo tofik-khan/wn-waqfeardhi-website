@@ -1,5 +1,5 @@
 node_modules
 .next
-*.env.*
+*.env*
 *_key.json
 listings.json
