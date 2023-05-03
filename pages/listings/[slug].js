@@ -13,6 +13,8 @@ import {
   DESCRIPTION,
   SLUG,
   IMAGE,
+  DURATION,
+  AUDIENCE,
 } from "../api/get-listings-data";
 
 import TextInput from "/components/TextInput";
@@ -106,23 +108,45 @@ export default function Page({ data }) {
     return (
       <>
         <Navigation />
-        <Container>
+        <Container className="py-3">
           <Row className="justify-content-center">
             <Col md={6}>
               <StyledImage url={selectedListing[IMAGE]} />
             </Col>
+            <Col md={6}>
+              <Heading1 className="py-5 text-center">
+                {selectedListing[TITLE]}
+              </Heading1>
+              <Paragraph className="text-center">
+                {selectedListing[SUBTITLE]}
+              </Paragraph>
+              <Row className="justify-content-center">
+                <Col md={"auto"}>
+                  <Paragraph>
+                    <strong>Duration: </strong>
+                    {selectedListing[DURATION]}
+                  </Paragraph>
+                </Col>
+                <Col md={"auto"}>
+                  <Paragraph>
+                    <strong>Audience: </strong>
+                    {selectedListing[AUDIENCE]}
+                  </Paragraph>
+                </Col>
+                <Col md={10}>
+                  <Paragraph>{selectedListing[DESCRIPTION]}</Paragraph>
+                </Col>
+              </Row>
+            </Col>
           </Row>
         </Container>
-        <Heading1 className="py-5 text-center">
-          {selectedListing[TITLE]}
-        </Heading1>
-        <Paragraph className="text-center">
-          {selectedListing[SUBTITLE]}
-        </Paragraph>
         <Container>
-          <Row className="justify-content-center">
-            <Col md={10}>{selectedListing[DESCRIPTION]}</Col>
+          <Row>
+            <Col></Col>
           </Row>
+        </Container>
+        <Container>
+          <Row className="justify-content-center"></Row>
         </Container>
         <StyledContainer className="py-5">
           <Row>

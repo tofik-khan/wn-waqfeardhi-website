@@ -45,6 +45,7 @@ export default async function handler (req, res) {
                 formData.aux,
                 formData.isWaqfeNau,
                 formData.comment,
+                formData.phone,
                 formData.slug,
               ],
             ],
