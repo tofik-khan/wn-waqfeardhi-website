@@ -9,6 +9,7 @@ const StyledBlockQuote = styled.blockquote`
   position: relative;
   margin: 0;
   padding: 1rem;
+  color: white;
 
   &:before,
   &:after {
@@ -30,11 +31,16 @@ const StyledBlockQuote = styled.blockquote`
     right: -2rem;
     bottom: 1rem;
   }
+
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+  }
 `;
 
 const StyledCitation = styled.cite`
   line-height: 3;
   text-align: left;
+  color: lightgrey;
 `;
 
 export default function Quote({ size, maxwidth, source, children }) {
