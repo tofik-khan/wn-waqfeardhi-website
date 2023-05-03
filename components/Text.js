@@ -29,7 +29,7 @@ const StyledHeading1 = styled.h1`
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
-  line-height: 24px;
+  line-height: 36px;
   text-align: ${(props) => (props.align ? props.align : "initial")};
 `;
 
