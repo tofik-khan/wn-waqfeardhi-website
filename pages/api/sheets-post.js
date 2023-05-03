@@ -30,25 +30,27 @@ export default async function handler (req, res) {
 
     try {
         const result = await googleSheetsInstance.spreadsheets.values.append({
-            spreadsheetId,
+          spreadsheetId,
+          range: "Responses",
+          valueInputOption: "RAW",
+          resource: {
             range: "Responses",
-            valueInputOption: "RAW",
-            resource: {
-                range: "Responses",
-                majorDimension: "ROWS",
-                values: [
-                  [
-                    formData.firstname,
-                    formData.lastname,
-                    formData.email,
-                    formData.jammat,
-                    formData.aux,
-                    formData.isWaqfeNau,
-                    formData.comment
-                  ]
-                ]
-              }
-          });
+            majorDimension: "ROWS",
+            values: [
+              [
+                formData.firstname,
+                formData.lastname,
+                formData.email,
+                formData.jammat,
+                formData.aux,
+                formData.isWaqfeNau,
+                formData.comment,
+                formData.phone,
+                formData.slug,
+              ],
+            ],
+          },
+        });
           console.log(`${result.data.updates.updatedCells} cells appended.`);
         } catch (err) {
           console.log("Error: Failed to append to Sheet")

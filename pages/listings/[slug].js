@@ -13,6 +13,8 @@ import {
   DESCRIPTION,
   SLUG,
   IMAGE,
+  DURATION,
+  AUDIENCE,
 } from "../api/get-listings-data";
 
 import TextInput from "/components/TextInput";
@@ -67,6 +69,7 @@ export default function Page({ data }) {
     lastname: null,
     jammat: jammatOptions[0].value,
     aux: auxiliaryOptions[0].value,
+    phone: null,
   });
   const [screen, updateScreen] = useState("FORM");
 
@@ -105,23 +108,45 @@ export default function Page({ data }) {
     return (
       <>
         <Navigation />
-        <Container>
+        <Container className="py-3">
           <Row className="justify-content-center">
             <Col md={6}>
               <StyledImage url={selectedListing[IMAGE]} />
             </Col>
+            <Col md={6}>
+              <Heading1 className="py-5 text-center">
+                {selectedListing[TITLE]}
+              </Heading1>
+              <Paragraph className="text-center">
+                {selectedListing[SUBTITLE]}
+              </Paragraph>
+              <Row className="justify-content-center">
+                <Col md={"auto"}>
+                  <Paragraph>
+                    <strong>Duration: </strong>
+                    {selectedListing[DURATION]}
+                  </Paragraph>
+                </Col>
+                <Col md={"auto"}>
+                  <Paragraph>
+                    <strong>Audience: </strong>
+                    {selectedListing[AUDIENCE]}
+                  </Paragraph>
+                </Col>
+                <Col md={10}>
+                  <Paragraph>{selectedListing[DESCRIPTION]}</Paragraph>
+                </Col>
+              </Row>
+            </Col>
           </Row>
         </Container>
-        <Heading1 className="py-5 text-center">
-          {selectedListing[TITLE]}
-        </Heading1>
-        <Paragraph className="text-center">
-          {selectedListing[SUBTITLE]}
-        </Paragraph>
         <Container>
-          <Row className="justify-content-center">
-            <Col md={10}>{selectedListing[DESCRIPTION]}</Col>
+          <Row>
+            <Col></Col>
           </Row>
+        </Container>
+        <Container>
+          <Row className="justify-content-center"></Row>
         </Container>
         <StyledContainer className="py-5">
           <Row>
@@ -183,7 +208,20 @@ export default function Page({ data }) {
                 }
               />
             </Col>
-            <Col sm={6} className="pt-4">
+            <Col sm={6}>
+              <TextInput
+                label="Phone Number"
+                isError={false} //Todo: Figure out how to determine if email is valid on submit?
+                errorMessage="This must be a valid email"
+                onChange={(event) =>
+                  updateFormData({ ...formData, phone: event.target.value })
+                }
+                required
+              />
+            </Col>
+          </Row>
+          <Row className="py-2 justify-content-center">
+            <Col className="pt-4">
               <ToggleSwitch
                 label="Are you part of the Waqf-e-Nau Scheme?"
                 onChange={(event) =>

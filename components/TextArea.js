@@ -10,32 +10,30 @@ const StyledLabel = styled.label`
 `
 
 const StyledTextArea = styled.textarea`
-    
-    /* Size */
-    width: ${props => props.width? `${props.width}px` : "100%" };
+  /* Size */
+  width: ${(props) => (props.width ? `${props.width}px` : "100%")};
+  height: ${(props) => (props.height ? `${props.height}px` : "100px")};
 
-    /* Padding */
-    padding-left: 8px;
+  /* Padding */
+  padding-left: 8px;
+
+  /* Border */
+  border: 2px solid ${(props) => (props.isError ? "red" : "#607EEB")};
+  border-radius: 4px;
+
+  &:hover {
+    /* Shadow */
+    box-shadow: 0px 0px 4px ${(props) => (props.isError ? "red" : "#607EEB")};
+  }
+
+  &:focus {
+    outline: none;
 
     /* Border */
-    border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
+    border: 2px solid ${(props) => (props.isError ? "red" : "#607EEB")};
     border-radius: 4px;
-
-    &:hover {
-
-        /* Shadow */
-        box-shadow: 0px 0px 4px ${props => props.isError? "red" : "#607EEB"} ;
-    }
-
-    &:focus {
-        
-        outline: none;
-
-        /* Border */
-        border: 2px solid ${props => props.isError? "red" : "#607EEB"} ;
-        border-radius: 4px;
-    }
-`
+  }
+`;
 
 const StyledMessage = styled.span`
 
