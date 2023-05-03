@@ -67,6 +67,7 @@ export default function Page({ data }) {
     lastname: null,
     jammat: jammatOptions[0].value,
     aux: auxiliaryOptions[0].value,
+    phone: null,
   });
   const [screen, updateScreen] = useState("FORM");
 
@@ -183,7 +184,20 @@ export default function Page({ data }) {
                 }
               />
             </Col>
-            <Col sm={6} className="pt-4">
+            <Col sm={6}>
+              <TextInput
+                label="Phone Number"
+                isError={false} //Todo: Figure out how to determine if email is valid on submit?
+                errorMessage="This must be a valid email"
+                onChange={(event) =>
+                  updateFormData({ ...formData, phone: event.target.value })
+                }
+                required
+              />
+            </Col>
+          </Row>
+          <Row className="py-2 justify-content-center">
+            <Col className="pt-4">
               <ToggleSwitch
                 label="Are you part of the Waqf-e-Nau Scheme?"
                 onChange={(event) =>
