@@ -78,7 +78,7 @@ export default function Page({ data }) {
                 </Col>
                 {element[IMAGE] ? (
                   <Col lg={6}>
-                    <StyledImage image="https://picsum.photos/700/300"></StyledImage>
+                    <StyledImage image={element[IMAGE]}></StyledImage>
                   </Col>
                 ) : (
                   ""
