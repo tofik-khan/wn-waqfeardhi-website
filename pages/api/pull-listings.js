@@ -1,12 +1,4 @@
 export default async function handler(req, res) {
-  // Authenticate request
-  if (!req.body.auth || req.body.auth !== process.env.API_AUTH_TOKEN) {
-    res
-      .status(401)
-      .json({ success: false, error: { message: "Failed to Authenticate" } });
-    return;
-  }
-
   const { google } = require("googleapis");
 
   const auth = new google.auth.GoogleAuth({
