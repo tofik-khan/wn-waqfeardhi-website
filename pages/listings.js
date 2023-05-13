@@ -18,6 +18,7 @@ import {
 import { Navigation } from "../partials/Nav";
 import { Heading2, Paragraph } from "../components/Text";
 import Footer from "../partials/Footer";
+import { useState, useEffect } from "react";
 
 const StyledPorjectContainer = styled(Container)`
   background: #f4f4f4;
@@ -46,7 +47,25 @@ function sanitizeProjectDescription(description) {
   return description.trim().slice(0, 150) + elipsis;
 }
 
-export default function Page({ data }) {
+export default function Page() {
+  const [data, updateData] = useState([]);
+  const [loaded, updateLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/pull-listings")
+      .then((response) => response.json())
+      .then((response) => updateData(response.data));
+    updateLoaded(true);
+  }, []);
+
+  if (!loaded) {
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    );
+  }
+
   return (
     <>
       <Navigation />
@@ -91,9 +110,4 @@ export default function Page({ data }) {
       <Footer />
     </>
   );
-}
-
-export async function getServerSideProps() {
-  const data = require("/content/listings.json").slice(1);
-  return { props: { data } };
 }

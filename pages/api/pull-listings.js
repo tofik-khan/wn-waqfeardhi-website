@@ -27,20 +27,5 @@ export default async function handler(req, res) {
     range: "Listings!A:H", //range of cells to read from.
   });
 
-  //Update content files
-  createContentFile(readData.data.values);
-
-  res.status(200).json({ success: true, response: readData.data.values });
-}
-
-function createContentFile(data) {
-  const dataString = JSON.stringify(data);
-  const fs = require("fs");
-  const path = `content/listings.json`;
-  fs.writeFile(path, dataString, (err) => {
-    // error checking
-    if (err) throw err;
-
-    console.log("New data added");
-  });
+  res.status(200).json({ success: true, data: readData.data.values });
 }
