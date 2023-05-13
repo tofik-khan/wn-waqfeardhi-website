@@ -51,7 +51,7 @@ const StyledSubmittedContainer = styled.div`
   justify-content: center;
 `;
 
-export default function Page({ data }) {
+export default function Page({ dataSlug }) {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -75,8 +75,31 @@ export default function Page({ data }) {
 
   const [showModal, updateShowModal] = useState(false);
 
-  if (data.length === 0) {
-    return <h1>Loading</h1>;
+  const [data, updateData] = useState([]);
+  const [loaded, updateLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/pull-listings")
+      .then((response) => response.json())
+      .then((response) => updateData(response.data))
+      .then(() => updateLoaded(true));
+  }, []);
+
+  if (loaded === false) {
+    return (
+      <>
+        <Navigation />
+        <StyledSubmittedContainer>
+          <Heading1 align={"center"} className="py-5">
+            Loading ...
+          </Heading1>
+          <Paragraph align={"center"} className={"px-2"}>
+            Please wait while we load all the information
+          </Paragraph>
+        </StyledSubmittedContainer>
+        <Footer />
+      </>
+    );
   }
 
   if (data.some((listing) => listing[SLUG] === slug)) {
@@ -99,9 +122,6 @@ export default function Page({ data }) {
         <Footer />
       </>
     );
-  }
-
-  if (selectedListing.length === 0) {
   }
 
   if (screen === "FORM") {
