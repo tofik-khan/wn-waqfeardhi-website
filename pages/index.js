@@ -22,7 +22,7 @@ export default function Page() {
         <Container>
           <Row>
             <Col>
-              <Heading2 align={"center"}>Start your Waqf</Heading2>
+              <Heading2 align={"center"}>Start Volunteering</Heading2>
             </Col>
           </Row>
           <Row className="justify-content-center py-3">
