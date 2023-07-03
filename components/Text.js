@@ -46,7 +46,7 @@ const StyledHeading2 = styled.h2`
   font-style: italic;
   font-weight: 600;
   font-size: 32px;
-  line-height: 24px;
+  line-height: 34px;
   text-align: ${(props) => (props.align ? props.align : "initial")};
 `;
 
