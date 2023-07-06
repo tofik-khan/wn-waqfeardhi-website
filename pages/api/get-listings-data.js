@@ -7,3 +7,4 @@ export const DESCRIPTION = 4;
 export const SLUG = 5;
 export const IMAGE = 6;
 export const PUBLISHED = 7;
+export const SPONSOR = 8;

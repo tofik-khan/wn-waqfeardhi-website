@@ -15,6 +15,7 @@ import {
   IMAGE,
   DURATION,
   AUDIENCE,
+  SPONSOR,
 } from "../api/get-listings-data";
 
 import TextInput from "/components/TextInput";
@@ -67,8 +68,8 @@ export default function Page({ dataSlug }) {
   const [formData, updateFormData] = useState({
     firstname: null,
     lastname: null,
-    jammat: jammatOptions[0].value,
-    aux: auxiliaryOptions[0].value,
+    jammat: null,
+    aux: null,
     phone: null,
   });
   const [screen, updateScreen] = useState("FORM");
@@ -138,7 +139,12 @@ export default function Page({ dataSlug }) {
                 {selectedListing[TITLE]}
               </Heading1>
               <Paragraph className="text-center">
+                <strong>Location: </strong>
                 {selectedListing[SUBTITLE]}
+              </Paragraph>
+              <Paragraph className="text-center">
+                <strong>Sponsor: </strong>
+                {selectedListing[SPONSOR]}
               </Paragraph>
               <Row className="justify-content-center">
                 <Col md={"auto"}>
@@ -212,6 +218,7 @@ export default function Page({ dataSlug }) {
               <Dropdown
                 label="Jammat"
                 options={jammatOptions}
+                defaultValue={false}
                 onChange={(option) =>
                   updateFormData({ ...formData, jammat: option.value })
                 }
@@ -223,6 +230,7 @@ export default function Page({ dataSlug }) {
               <Dropdown
                 label="Auxiliary"
                 options={auxiliaryOptions}
+                defaultValue={false}
                 onChange={(option) =>
                   updateFormData({ ...formData, aux: option.value })
                 }

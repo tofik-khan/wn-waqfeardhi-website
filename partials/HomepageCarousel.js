@@ -16,11 +16,11 @@ export default function HomepageCarousel() {
         <Row className="justify-content-center">
           <Col xs={12}>
             <Carousel controls={false} interval={10000}>
-              <Carousel.Item interval={15000} style={{ minHeight: "350px" }}>
+              <Carousel.Item interval={15000} style={{ minHeight: "400px" }}>
                 <Container>
                   <Row
                     className="justify-content-center align-items-center"
-                    style={{ minHeight: "350px" }}
+                    style={{ minHeight: "400px" }}
                   >
                     <Col md={8}>
                       <Quote
@@ -40,11 +40,11 @@ export default function HomepageCarousel() {
                   </Row>
                 </Container>
               </Carousel.Item>
-              <Carousel.Item>
+              <Carousel.Item style={{ minHeight: "400px" }}>
                 <Container>
                   <Row
                     className="justify-content-center align-items-center"
-                    style={{ minHeight: "350px" }}
+                    style={{ minHeight: "400px" }}
                   >
                     <Col md={8}>
                       <Quote source="Hazrat Mirza Masroor Ahmad (a.b.a.) - Khalifa-tul-Masih V">
