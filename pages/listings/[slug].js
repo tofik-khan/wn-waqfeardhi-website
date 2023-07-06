@@ -212,6 +212,7 @@ export default function Page({ dataSlug }) {
               <Dropdown
                 label="Jammat"
                 options={jammatOptions}
+                defaultValue={false}
                 onChange={(option) =>
                   updateFormData({ ...formData, jammat: option.value })
                 }
@@ -223,6 +224,7 @@ export default function Page({ dataSlug }) {
               <Dropdown
                 label="Auxiliary"
                 options={auxiliaryOptions}
+                defaultValue={false}
                 onChange={(option) =>
                   updateFormData({ ...formData, aux: option.value })
                 }
