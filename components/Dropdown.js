@@ -34,7 +34,7 @@ export default ({defaultValue, isSearchable, isDisabled, isLoading, onChange, op
         <>
             { label && <><StyledLabel isError={error?.isError} htmlFor="input-field">{label}</StyledLabel>  <br /> </>}
             <Select
-                defaultValue={defaultValue || options[0]}
+                defaultValue={defaultValue === false? null : defaultValue || options[0]}
                 isDisabled={isDisabled}
                 isSearchable={isSearchable}
                 isLoading={isLoading}
