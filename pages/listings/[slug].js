@@ -364,6 +364,8 @@ function submitForm(formData, slug, updateShowModal) {
     return false;
   }
 
+  sendEmailNotification();
+
   const body = {
     auth: process.env.API_AUTH_TOKEN,
     formData: { ...formData, slug: slug },
@@ -380,4 +382,20 @@ function submitForm(formData, slug, updateShowModal) {
     .then((response) => console.log(response));
 
   return true;
+}
+
+function sendEmailNotification() {
+  const body = {
+    auth: process.env.API_AUTH_TOKEN,
+  };
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  };
+
+  fetch("/api/dispatch-email", requestOptions)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
 }
