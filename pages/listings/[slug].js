@@ -67,8 +67,8 @@ export default function Page({ dataSlug }) {
   const [formData, updateFormData] = useState({
     firstname: null,
     lastname: null,
-    jammat: jammatOptions[0].value,
-    aux: auxiliaryOptions[0].value,
+    jammat: null,
+    aux: null,
     phone: null,
   });
   const [screen, updateScreen] = useState("FORM");
