@@ -138,6 +138,7 @@ export default function Page({ dataSlug }) {
                 {selectedListing[TITLE]}
               </Heading1>
               <Paragraph className="text-center">
+                <strong>Location: </strong>
                 {selectedListing[SUBTITLE]}
               </Paragraph>
               <Row className="justify-content-center">
