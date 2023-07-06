@@ -14,6 +14,7 @@ import {
   DURATION,
   AUDIENCE,
   PUBLISHED,
+  SPONSOR,
 } from "./api/get-listings-data";
 import { Navigation } from "../partials/Nav";
 import { Heading2, Paragraph } from "../components/Text";
@@ -77,6 +78,7 @@ export default function Page() {
               <Row className="align-items-center">
                 <Col lg={6}>
                   <Heading2>{element[TITLE]}</Heading2>
+                  <Paragraph>{element[SPONSOR] ?? ""}</Paragraph>
                   <Paragraph incognito={true}>
                     {element[DURATION]}{" "}
                     {element[AUDIENCE] ? ` / ${element[AUDIENCE]}` : ""}

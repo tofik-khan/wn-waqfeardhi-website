@@ -15,6 +15,7 @@ import {
   IMAGE,
   DURATION,
   AUDIENCE,
+  SPONSOR,
 } from "../api/get-listings-data";
 
 import TextInput from "/components/TextInput";
@@ -140,6 +141,10 @@ export default function Page({ dataSlug }) {
               <Paragraph className="text-center">
                 <strong>Location: </strong>
                 {selectedListing[SUBTITLE]}
+              </Paragraph>
+              <Paragraph className="text-center">
+                <strong>Sponsor: </strong>
+                {selectedListing[SPONSOR]}
               </Paragraph>
               <Row className="justify-content-center">
                 <Col md={"auto"}>

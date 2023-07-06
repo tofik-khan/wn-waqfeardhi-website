@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   const readData = await googleSheetsInstance.spreadsheets.values.get({
     auth, //auth object
     spreadsheetId, // spreadsheet id
-    range: "Listings!A:H", //range of cells to read from.
+    range: "Listings!A:I", //range of cells to read from.
   });
 
   res.status(200).json({ success: true, data: readData.data.values });
