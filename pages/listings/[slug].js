@@ -56,7 +56,12 @@ export default function Page({ dataSlug }) {
   const router = useRouter();
   const { slug } = router.query;
 
-  const jammatOptions = require("/content/jammat.json");
+  const jammatOptions = require("/content/jammat.json").sort((a, b) => {
+    a = a.value.toLowerCase();
+    b = b.value.toLowerCase();
+
+    return a < b ? -1 : a > b ? 1 : 0;
+  });
   const auxiliaryOptions = [
     { value: "Ansar", label: "Ansarullah" },
     { value: "Atfal", label: "Atfal-ul-Ahmadiyya" },
