@@ -3,17 +3,18 @@ import styled from "styled-components";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import logomark from "/public/images/wn-logomark.png";
+import WNlogomark from "/public/images/wn-logo.png";
+import TAQWAlogomark from "/public/images/taqwa-logomark.png";
 import Button from "../components/Button";
 
 const StyledNavBar = styled(Navbar)`
-  background-color: #1b998b;
+  background-color: #6a0136;
   padding-top: 15px;
   padding-bottom: 15px;
 `;
 
 const StyledSpacer = styled.div`
-  margin-bottom: 100px;
+  margin-bottom: 140px;
 `;
 
 export const Navigation = () => {
@@ -24,7 +25,16 @@ export const Navigation = () => {
       <StyledNavBar fixed="top" variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">
-            <Image src={logomark} width={300} />
+            <Image src={WNlogomark} width={100} />
+            <Image
+              src={TAQWAlogomark}
+              width={200}
+              style={{
+                borderLeft: "1px solid darkgray",
+                padding: "5px",
+                marginLeft: "10px",
+              }}
+            />
           </Navbar.Brand>
           <Navbar.Toggle>
             <Hamburger toggled={isOpen} toggle={setOpen} />
