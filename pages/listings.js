@@ -20,6 +20,7 @@ import { Navigation } from "../partials/Nav";
 import { Heading2, Paragraph } from "../components/Text";
 import Footer from "../partials/Footer";
 import { useState, useEffect } from "react";
+import { convertToHTMLTags } from "../helpers/format-text";
 
 const StyledPorjectContainer = styled(Container)`
   background: #f4f4f4;
@@ -86,8 +87,8 @@ export default function Page() {
                   <Paragraph incognito={true}>
                     {element[SUBTITLE] ?? ""}
                   </Paragraph>
-                  <Paragraph>
-                    {sanitizeProjectDescription(element[DESCRIPTION])}
+                  <Paragraph lines={3}>
+                    {convertToHTMLTags(element[DESCRIPTION])}
                   </Paragraph>
                   <Button
                     variant="primary"
