@@ -9,15 +9,36 @@ const StyledParagraph = styled.p`
   text-align: ${(props) => (props.align ? props.align : "initial")};
   color: ${(props) =>
     props.incognito ? "#949697" : props.color ? props.color : "initial"};
+
+  /* Truncate text based to specified line numbers */
+  ${(props) =>
+    props.lines
+      ? `
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: ${props.lines}; /* number of lines to show */
+           line-clamp: ${props.lines};
+   -webkit-box-orient: vertical;
+  `
+      : ""}
 `;
 
-export function Paragraph({ align, incognito, color, children, className }) {
+export function Paragraph({
+  align,
+  incognito,
+  color,
+  children,
+  className,
+  lines,
+}) {
   return (
     <StyledParagraph
       align={align}
       incognito={incognito}
       color={color}
       className={className}
+      lines={lines}
     >
       {children}
     </StyledParagraph>
