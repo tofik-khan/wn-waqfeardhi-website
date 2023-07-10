@@ -27,6 +27,7 @@ import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
 import { Modal } from "react-bootstrap";
 import { Heading1, Paragraph } from "../../components/Text";
+import { convertToHTMLTags } from "../../helpers/format-text";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -165,7 +166,9 @@ export default function Page({ dataSlug }) {
                   </Paragraph>
                 </Col>
                 <Col md={10}>
-                  <Paragraph>{selectedListing[DESCRIPTION]}</Paragraph>
+                  <Paragraph>
+                    {convertToHTMLTags(selectedListing[DESCRIPTION])}
+                  </Paragraph>
                 </Col>
               </Row>
             </Col>
