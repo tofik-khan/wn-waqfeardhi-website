@@ -1,1 +1,2 @@
 testing signed commits
+testing signed commit by -S flag
