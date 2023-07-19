@@ -1,2 +1,3 @@
 testing signed commits
 testing signed commit by -S flag
+testing with email included gpg key
