@@ -54,6 +54,7 @@ function Input({
   isError,
   errorMessage,
   required,
+  type,
 }) {
   return (
     <>
@@ -67,7 +68,7 @@ function Input({
       )}
       <StyledInput
         width={width}
-        type="text"
+        type={type || "text"}
         placeholder={placeholder}
         onChange={onChange}
         isError={isError}
