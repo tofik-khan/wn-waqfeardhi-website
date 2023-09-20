@@ -51,6 +51,7 @@ export default async function handler(req, res) {
             formData.phone,
             formData.slug,
             timestamp,
+            formData.membercode,
           ],
         ],
       },
