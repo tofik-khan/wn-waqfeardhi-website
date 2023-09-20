@@ -77,6 +77,7 @@ export default function Page({ dataSlug }) {
     jammat: null,
     aux: null,
     phone: null,
+    membercode: null,
   });
   const [screen, updateScreen] = useState("FORM");
 
@@ -251,6 +252,26 @@ export default function Page({ dataSlug }) {
                 errorMessage="This must be a valid email"
                 onChange={(event) =>
                   updateFormData({ ...formData, phone: event.target.value })
+                }
+                required
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6}>
+              <TextInput
+                label="Member Code"
+                type="number"
+                isError={
+                  formData.membercode !== null &&
+                  !new RegExp(/[0-9]+/).test(formData.membercode)
+                }
+                errorMessage="The member code cannot be blank and cannot contain non-numeric values"
+                onChange={(event) =>
+                  updateFormData({
+                    ...formData,
+                    membercode: event.target.value,
+                  })
                 }
                 required
               />
