@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navigation } from "../partials/Nav";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -10,10 +11,14 @@ import Marquee from "react-fast-marquee";
 import SponsorImage from "../partials/SponsorImage";
 import Footer from "../partials/Footer";
 import HomepageCarousel from "../partials/HomepageCarousel";
+import TextInput from "../components/TextInput";
+import { Modal } from "react-bootstrap";
 
 const opportunities = require("/content/oppy.json");
 
 export default function Page() {
+  const [email, updateEmail] = useState("");
+  const [showModal, updateShowModal] = useState(false);
   return (
     <>
       <Navigation />
@@ -63,6 +68,31 @@ export default function Page() {
           ))}
         </Row>
       </Container>
+      <Container className="py-5 bg-light" fluid>
+        <Row className="justify-content-center">
+          <Col xs="auto">
+            <h2>Get Latest Updates from us</h2>
+            <TextInput
+              placeholder={"Enter your email"}
+              onChange={(event) => updateEmail(event.target.value)}
+              type={"email"}
+            />
+          </Col>
+        </Row>
+        <Row className="justify-content-center py-3">
+          <Col xs="auto">
+            <Button
+              variant={"primary"}
+              onClick={() => {
+                sendSubscribeRequest(email);
+                updateShowModal(true);
+              }}
+            >
+              Subscribe!
+            </Button>
+          </Col>
+        </Row>
+      </Container>
       <Container className="mt-5 py-5">
         <Row>
           <Col>
@@ -110,6 +140,49 @@ export default function Page() {
         </Row>
       </Container>
       <Footer />
+      <Modal
+        size="lg"
+        show={showModal}
+        onHide={() => updateShowModal(false)}
+        aria-labelledby="user-subscribed"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="user-subscribed">
+            Jazakallah! You have subscribed
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Paragraph>
+            We have collected your email and will reach out when a new
+            opportunities opens up.
+          </Paragraph>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => updateShowModal(false)}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
+}
+
+function sendSubscribeRequest(email) {
+  const body = {
+    auth: process.env.API_AUTH_TOKEN,
+    email: email,
+  };
+
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  };
+
+  fetch("/api/add-subscriber", requestOptions)
+    .then((response) => response.json())
+    .then((response) => console.log(response));
+
+  return true;
 }
