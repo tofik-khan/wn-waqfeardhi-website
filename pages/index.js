@@ -36,8 +36,9 @@ export default function Page() {
                 Joining Waqf-e-Arzi can be a transformative experience that will
                 enhance all aspects of your life. Take the first step towards
                 spiritual growth and personal development by joining Waqf-e-Arzi
-                today. An internship completion certificate will be provided to
-                all volunteers successfully participating in this program.
+                today. For internships with duration of 3 or more days, a
+                completion certificate will be provided to all volunteers for
+                successfully participating in this program.
               </Paragraph>
             </Col>
           </Row>
