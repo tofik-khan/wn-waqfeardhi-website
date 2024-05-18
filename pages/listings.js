@@ -56,7 +56,7 @@ export default function Page() {
   useEffect(() => {
     fetch("/api/pull-listings")
       .then((response) => response.json())
-      .then((response) => updateData(response.data));
+      .then((response) => updateData(response.data.reverse()));
     updateLoaded(true);
   }, []);
 
