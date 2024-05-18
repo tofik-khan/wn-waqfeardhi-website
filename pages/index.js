@@ -37,8 +37,16 @@ export default function Page() {
                 enhance all aspects of your life. Take the first step towards
                 spiritual growth and personal development by joining Waqf-e-Arzi
                 today. For internships with duration of 3 or more days, a
-                completion certificate will be provided to all volunteers for
-                successfully participating in this program.
+                completion&nbsp;
+                <a
+                  href="https://forms.gle/72avPL6ZVvvcxxcm6"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  certificate
+                </a>
+                &nbsp;will be provided to all volunteers for successfully
+                participating in this program.
               </Paragraph>
             </Col>
           </Row>
