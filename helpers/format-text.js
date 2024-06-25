@@ -17,5 +17,8 @@ export function convertToHTMLTags(str) {
   // Replace \n with <br />
   str = str.replace(/\n/g, "<br />");
 
+  // Replace [name](link) with <a href="link">name</a
+  str = str.replace(/\[(.*)\]\((.*)\)/g, `<a href="$2">$1</a>`);
+
   return parse(str);
 }
