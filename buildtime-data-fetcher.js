@@ -26,7 +26,7 @@ function getSheetContent(authClientObject) {
     .get({
       auth, //auth object
       spreadsheetId, // spreadsheet id
-      range: "Listings!A:H", //range of cells to read from.
+      range: "Listings!A:J", //range of cells to read from.
     })
     .then((response) => createContentFile(response.data.values));
 }
