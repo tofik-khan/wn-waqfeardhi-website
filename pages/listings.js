@@ -15,6 +15,7 @@ import {
   AUDIENCE,
   PUBLISHED,
   SPONSOR,
+  BADGE,
 } from "./api/get-listings-data";
 import { Navigation } from "../partials/Nav";
 import { Heading2, Paragraph } from "../components/Text";
@@ -44,10 +45,14 @@ const StyledImage = styled.div`
   }
 `;
 
-function sanitizeProjectDescription(description) {
-  const elipsis = description.length > 150 ? "..." : "";
-  return description.trim().slice(0, 150) + elipsis;
-}
+const Badge = styled.div`
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  background-color: #2457b2;
+  width: fit-content;
+  margin: 8px 0px;
+`;
 
 export default function Page() {
   const [data, updateData] = useState([]);
@@ -78,6 +83,9 @@ export default function Page() {
             <StyledPorjectContainer key={index}>
               <Row className="align-items-center">
                 <Col lg={6}>
+                  {element[BADGE] !== undefined && (
+                    <Badge>{element[BADGE]}</Badge>
+                  )}
                   <Heading2>{element[TITLE]}</Heading2>
                   <Paragraph>{element[SPONSOR] ?? ""}</Paragraph>
                   <Paragraph incognito={true}>
