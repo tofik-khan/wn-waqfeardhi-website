@@ -46,7 +46,7 @@ export default async function handler(req, res) {
             formData.email,
             formData.jammat,
             formData.aux,
-            formData.isWaqfeNau,
+            !!formData.isWaqfeNau,
             formData.comment,
             formData.phone,
             formData.slug,
@@ -56,11 +56,37 @@ export default async function handler(req, res) {
         ],
       },
     });
+
+    const mudirRequestBody = {
+      firstname: formData.firstname,
+      lastname: formData.lastname,
+      email: formData.email,
+      jammat: formData.jammat,
+      auxiliary: formData.aux,
+      isWaqfenau: !!formData.isWaqfeNau,
+      comments: formData.comment,
+      phone: formData.phone,
+      slug: formData.slug,
+      membercode: formData.membercode,
+    };
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(mudirRequestBody),
+    };
+
+    await fetch(
+      "https://wn-mudir-backend.vercel.app/waqfeardhi/applicants",
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((response) => console.log(response));
+
     console.log(`${result.data.updates.updatedCells} cells appended.`);
   } catch (err) {
     console.log("Error: Failed to append to Sheet");
     console.log(err.message);
   }
-
   res.status(200).json({ success: true });
 }
