@@ -68,6 +68,7 @@ export default async function handler(req, res) {
       phone: formData.phone,
       slug: formData.slug,
       membercode: formData.membercode,
+      status: "pending",
     };
 
     const requestOptions = {
