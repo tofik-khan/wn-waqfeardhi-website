@@ -33,6 +33,14 @@ h5,
   color: #637381;
 }
 
+.caption {
+  font-family: "Public Sans";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #1c252e;
+}
+
 .button {
   font-family: "Public Sans";
   font-weight: 700;

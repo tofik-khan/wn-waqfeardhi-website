@@ -4,8 +4,7 @@ import { Paragraph } from "../components/Text";
 
 const StyledFooterContainer = styled.div`
   width: 100%;
-  height: 100px;
-  background-color: #1b998b;
+  padding: 64px;
 
   display: flex;
   justify-content: center;
@@ -15,15 +14,9 @@ const StyledFooterContainer = styled.div`
 export default function Footer() {
   return (
     <StyledFooterContainer>
-      <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={"auto"} className="justify-content-start">
-            <Paragraph color={"white"}>
-              © waqfenau.us - 2023 | All Rights Reserved
-            </Paragraph>
-          </Col>
-        </Row>
-      </Container>
+      <div className="caption">
+        © waqfenau.us - {new Date().getFullYear()} | All Rights Reserved
+      </div>
     </StyledFooterContainer>
   );
 }
