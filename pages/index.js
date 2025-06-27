@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Navigation } from "../partials/Nav";
 import { Hero } from "../partials/home/Hero";
+import { Infographic } from "../partials/home/Infographic";
 
 export default function Page() {
   return (
     <>
       <Navigation />
       <Hero />
+      <Infographic />
     </>
   );
 }
