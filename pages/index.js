@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigation } from "../partials/Nav";
 import { Hero } from "../partials/home/Hero";
 import { Infographic } from "../partials/home/Infographic";
+import { VolunteerAreas } from "../partials/home/VolunteerAreas";
 
 export default function Page() {
   return (
@@ -9,6 +10,7 @@ export default function Page() {
       <Navigation />
       <Hero />
       <Infographic />
+      <VolunteerAreas />
     </>
   );
 }

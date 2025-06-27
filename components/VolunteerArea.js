@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { Heading3, Paragraph } from "../components/Text";
+import { Heading3, Paragraph } from "./Text";
 
 const StyledIconContainer = styled.div`
   margin-bottom: 20px;
@@ -8,11 +8,7 @@ const StyledIconContainer = styled.div`
   height: 60px;
 `;
 
-const StyledSpacer = styled.div`
-  height: 20px;
-`;
-
-export default function OpportunityCard({ image, heading, content }) {
+export default function VolunteerArea({ image, heading, content }) {
   return (
     <>
       <StyledIconContainer>
@@ -24,9 +20,13 @@ export default function OpportunityCard({ image, heading, content }) {
           }}
         />
       </StyledIconContainer>
-      <Heading3 align={"center"}>{heading}</Heading3>
-      <StyledSpacer />
-      <Paragraph align={"center"}>{content}</Paragraph>
+      <h5 style={{ textAlign: "center" }}>{heading}</h5>
+      <div
+        className="body1"
+        style={{ textAlign: "center", maxWidth: "300px", margin: "auto" }}
+      >
+        {content}
+      </div>
     </>
   );
 }
