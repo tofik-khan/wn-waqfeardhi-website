@@ -45,6 +45,7 @@ const Info = ({ image, color, value, subtitle }) => {
 const StyledContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 80px;
 `;
 
 export const Infographic = () => {
