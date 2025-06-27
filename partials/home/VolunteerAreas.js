@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import VolunteerArea from "../../components/VolunteerArea";
-import * as volunteerAreas from "../../content/oppy.json";
+const volunteerAreas = require("../../content/oppy.json");
 
 export const VolunteerAreas = () => {
   return (
