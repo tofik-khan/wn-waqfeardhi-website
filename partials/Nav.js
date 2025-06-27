@@ -8,13 +8,13 @@ import TAQWAlogomark from "/public/images/taqwa-logomark.png";
 import Button from "../components/Button";
 
 const StyledNavBar = styled(Navbar)`
-  background-color: #6a0136;
+  background-color: #f4f6f8;
   padding-top: 15px;
   padding-bottom: 15px;
 `;
 
 const StyledSpacer = styled.div`
-  margin-bottom: 140px;
+  margin-bottom: 70px;
 `;
 
 export const Navigation = () => {
@@ -24,20 +24,9 @@ export const Navigation = () => {
     <>
       <StyledNavBar fixed="top" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/">
-            <Image src={WNlogomark} width={100} />
-            <Image
-              src={TAQWAlogomark}
-              width={200}
-              style={{
-                borderLeft: "1px solid darkgray",
-                padding: "5px",
-                marginLeft: "10px",
-              }}
-            />
-          </Navbar.Brand>
+          <Navbar.Brand href="/"></Navbar.Brand>
           <Navbar.Toggle>
-            <Hamburger toggled={isOpen} toggle={setOpen} />
+            <Hamburger color="#1C252E" toggled={isOpen} toggle={setOpen} />
           </Navbar.Toggle>
           <Navbar.Collapse className="justify-content-end align-items-center">
             <Nav>
@@ -46,15 +35,20 @@ export const Navigation = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="align-items-center"
+                style={{
+                  color: "#1C252E",
+                }}
               >
-                <Button variant="primary" size="small">
-                  Sponsor
-                </Button>
+                Sponsor
               </Nav.Link>
-              <Nav.Link href="/listings" className="align-items-center">
-                <Button variant="primary" size="small">
-                  Projects
-                </Button>
+              <Nav.Link
+                href="/listings"
+                className="align-items-center"
+                style={{
+                  color: "#1C252E",
+                }}
+              >
+                Projects
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
