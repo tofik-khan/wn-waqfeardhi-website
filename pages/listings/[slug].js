@@ -26,7 +26,7 @@ import Footer from "../../partials/Footer";
 import { Heading1, Paragraph } from "../../components/Text";
 import { convertToHTMLTags } from "../../helpers/format-text";
 import { ClipLoader } from "react-spinners";
-import { GeoAlt, Globe, Pin } from "react-bootstrap-icons";
+import { Clock, GeoAlt, Globe, Person, Pin } from "react-bootstrap-icons";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -75,6 +75,17 @@ const StyledProjectInfoContainer = styled.div`
   @media screen and (max-width: 500px) {
     flex-direction: column;
   }
+`;
+
+const StyledProjectDescriptionContainer = styled.div`
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+`;
+
+const StyledProjectSidebar = styled.div`
+  min-width: 300px;
 `;
 
 export default function Page({ dataSlug }) {
@@ -197,56 +208,56 @@ export default function Page({ dataSlug }) {
             Apply Now
           </button>
         </StyledHeroContainer>
-        <Container className="py-3">
-          <Row className="justify-content-center">
-            <Col md={6}>
-              <StyledImage url={selectedListing[IMAGE]} />
-            </Col>
-            <Col md={6}>
-              <Heading1 className="py-5 text-center">
-                {selectedListing[TITLE]}
-              </Heading1>
-              <Paragraph className="text-center">
-                <strong>Location: </strong>
-                {selectedListing[SUBTITLE]}
-              </Paragraph>
-              <Paragraph className="text-center">
-                <strong>Sponsor: </strong>
-                {selectedListing[SPONSOR]}
-              </Paragraph>
-              <Row className="justify-content-center">
-                <Col md={"auto"}>
-                  <Paragraph>
-                    <strong>Duration: </strong>
-                    {selectedListing[DURATION]}
-                  </Paragraph>
-                </Col>
-                <Col md={"auto"}>
-                  <Paragraph>
-                    <strong>Audience: </strong>
+        <StyledProjectDescriptionContainer>
+          <div>
+            <h5>Project Description</h5>
+            <p className={"body1"} style={{ color: "#1C252E" }}>
+              {convertToHTMLTags(selectedListing[DESCRIPTION])}
+            </p>
+            <hr style={{ color: "#919EAB", marginBlock: "40px" }} />
+          </div>
+          <StyledProjectSidebar>
+            <div className="paper">
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "16px" }}
+              >
+                <Person size={"20px"} />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span className="subtitle2">Audience</span>
+                  <p className="body1" style={{ margin: 0 }}>
                     {selectedListing[AUDIENCE]}
-                  </Paragraph>
-                </Col>
-                <Col md={10}>
-                  <Paragraph>
-                    {convertToHTMLTags(selectedListing[DESCRIPTION])}
-                  </Paragraph>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row>
-            <Col></Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row className="justify-content-center"></Row>
-        </Container>
+                  </p>
+                </div>
+              </div>
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "16px" }}
+              >
+                <Clock size={"20px"} />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span className="subtitle2">Duration</span>
+                  <p className="body1" style={{ margin: 0 }}>
+                    {selectedListing[DURATION]}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </StyledProjectSidebar>
+        </StyledProjectDescriptionContainer>
         <StyledContainer className="py-5">
           <Row>
-            <h2>Submit Application</h2>
+            <h3>Apply for this project</h3>
           </Row>
           <Row className="py-2">
             <Col sm={6}>
