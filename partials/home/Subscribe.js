@@ -43,6 +43,7 @@ export const Subscribe = () => {
             type="email"
             placeholder="Enter your email"
             onChange={(event) => updateEmail(event.target.value)}
+            value={email}
           />
           <button
             onClick={() => {
@@ -57,7 +58,10 @@ export const Subscribe = () => {
       <Modal
         size="md"
         show={showModal}
-        onHide={() => updateShowModal(false)}
+        onHide={() => {
+          updateEmail("");
+          updateShowModal(false);
+        }}
         aria-labelledby="user-subscribed"
         centered
       >
