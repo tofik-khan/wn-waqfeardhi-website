@@ -2,8 +2,8 @@ import styled from "styled-components";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "../components/Button";
-import { Heading1 } from "../components/Text";
+import Button from "../../components/Button";
+import { Heading1 } from "../../components/Text";
 
 import {
   TITLE,
@@ -16,12 +16,12 @@ import {
   PUBLISHED,
   SPONSOR,
   BADGE,
-} from "./api/get-listings-data";
-import { Navigation } from "../partials/Nav";
-import { Heading2, Paragraph } from "../components/Text";
-import Footer from "../partials/Footer";
+} from "../api/get-listings-data";
+import { Navigation } from "../../partials/Nav";
+import { Heading2, Paragraph } from "../../components/Text";
+import Footer from "../../partials/Footer";
 import { useState, useEffect } from "react";
-import { convertToHTMLTags } from "../helpers/format-text";
+import { convertToHTMLTags } from "../../helpers/format-text";
 
 const StyledPorjectContainer = styled(Container)`
   background: #f4f4f4;
