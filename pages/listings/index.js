@@ -16,7 +16,7 @@ import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
 import { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
-import { GeoAlt, Person } from "react-bootstrap-icons";
+import { Clock, GeoAlt, Person } from "react-bootstrap-icons";
 import Link from "next/link";
 
 const StyledBadgeContainer = styled.div`
@@ -74,7 +74,7 @@ const ProjectCard = ({ project }) => {
             <Row>
               <Col xs={6}>
                 <div className="body2">
-                  <GeoAlt />
+                  <Clock />
                   &nbsp; {project[DURATION]}
                 </div>
               </Col>
@@ -120,7 +120,7 @@ export default function Page() {
           {data.map(
             (project, index) =>
               project[PUBLISHED] === "TRUE" && (
-                <Col xs={4} className="py-3">
+                <Col lg={4} md={6} xs={12} className="p-3">
                   <ProjectCard project={project} />
                 </Col>
               )
