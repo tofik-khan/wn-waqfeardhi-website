@@ -27,9 +27,24 @@ h5,
   color: #1c252e;
 }
 
+h6,
+.h6 {
+  font-family: "Barlow";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  color: #1c252e;
+}
+
 .body1 {
   font-family: "Public Sans";
   font-size: 16px;
+  color: #637381;
+}
+
+.body2 {
+  font-family: "Public Sans";
+  font-size: 14px;
   color: #637381;
 }
 
@@ -48,6 +63,15 @@ h5,
   line-height: 26px;
   text-decoration: none;
   padding: 16px 16px;
+}
+
+.line-clamp-2 {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .primary {

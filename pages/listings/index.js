@@ -1,9 +1,4 @@
 import styled from "styled-components";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "../../components/Button";
-import { Heading1 } from "../../components/Text";
 
 import {
   TITLE,
@@ -18,41 +13,84 @@ import {
   BADGE,
 } from "../api/get-listings-data";
 import { Navigation } from "../../partials/Nav";
-import { Heading2, Paragraph } from "../../components/Text";
 import Footer from "../../partials/Footer";
 import { useState, useEffect } from "react";
-import { convertToHTMLTags } from "../../helpers/format-text";
+import { Card, Container, Row, Col } from "react-bootstrap";
+import { GeoAlt, Person } from "react-bootstrap-icons";
+import Link from "next/link";
 
-const StyledPorjectContainer = styled(Container)`
-  background: #f4f4f4;
-  padding: 40px;
-  border-radius: 4px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const StyledImage = styled.div`
+const StyledBadgeContainer = styled.div`
+  height: 72px;
   width: 100%;
-  height: 400px;
-  background-size: cover;
-  background-image: url(${(props) =>
-    props.image ? props.image : "/images/placeholder.jpeg"});
-  border-radius: 4px;
-
-  @media only screen and (max-width: 992px) {
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
+  display: flex;
+  justify-content: end;
 `;
 
-const Badge = styled.div`
-  padding: 4px 8px;
-  border-radius: 4px;
-  color: white;
-  background-color: #2457b2;
-  width: fit-content;
-  margin: 8px 0px;
+const StyledBadge = styled.div`
+  height: fit-content;
+  padding: 8px 12px;
+  background-color: #00b8d929;
+  color: #006c9c;
+  border-radius: 8px;
+
+  font-family: "Public Sans";
+  font-weight: 500;
+  font-size: 15px;
 `;
+
+const ProjectCard = ({ project }) => {
+  return (
+    <>
+      <Link
+        href={`/listings/${project[SLUG]}`}
+        style={{ textDecoration: "none" }}
+      >
+        <Card
+          style={{
+            height: "100%",
+            borderRadius: "16px",
+          }}
+        >
+          <Card.Body style={{ padding: "24px" }}>
+            <StyledBadgeContainer>
+              {project[BADGE] && <StyledBadge>{project[BADGE]}</StyledBadge>}
+            </StyledBadgeContainer>
+            <h6 className="line-clamp-2">{project[TITLE]}</h6>
+            <div className="body2" style={{ color: "#00B8D9" }}>
+              {project[SPONSOR]}
+            </div>
+            <div className="body2">
+              <GeoAlt />
+              &nbsp; {project[SUBTITLE]}
+            </div>
+          </Card.Body>
+          <Card.Footer
+            style={{
+              borderTop: "1px dashed #919EAB33",
+              backgroundColor: "transparent",
+              padding: "16px 24px",
+            }}
+          >
+            <Row>
+              <Col xs={6}>
+                <div className="body2">
+                  <GeoAlt />
+                  &nbsp; {project[DURATION]}
+                </div>
+              </Col>
+              <Col xs={6}>
+                <div className="body2">
+                  <Person />
+                  &nbsp; {project[AUDIENCE]}
+                </div>
+              </Col>
+            </Row>
+          </Card.Footer>
+        </Card>
+      </Link>
+    </>
+  );
+};
 
 export default function Page() {
   const [data, updateData] = useState([]);
@@ -76,48 +114,19 @@ export default function Page() {
   return (
     <>
       <Navigation />
-      <Heading1 className="py-5 text-center">Available Projects</Heading1>
-      {data.map((element, index) => {
-        if (element[PUBLISHED] === "TRUE") {
-          return (
-            <StyledPorjectContainer key={index}>
-              <Row className="align-items-center">
-                <Col lg={6}>
-                  {element[BADGE] !== undefined && (
-                    <Badge>{element[BADGE]}</Badge>
-                  )}
-                  <Heading2>{element[TITLE]}</Heading2>
-                  <Paragraph>{element[SPONSOR] ?? ""}</Paragraph>
-                  <Paragraph incognito={true}>
-                    {element[DURATION]}{" "}
-                    {element[AUDIENCE] ? ` / ${element[AUDIENCE]}` : ""}
-                  </Paragraph>
-                  <Paragraph incognito={true}>
-                    {element[SUBTITLE] ?? ""}
-                  </Paragraph>
-                  <Paragraph lines={3}>
-                    {convertToHTMLTags(element[DESCRIPTION])}
-                  </Paragraph>
-                  <Button
-                    variant="primary"
-                    size="large"
-                    href={`/listings/${element[SLUG]}`}
-                  >
-                    Learn More
-                  </Button>
+      <h2 className="py-5 text-center">Available Projects</h2>
+      <Container>
+        <Row>
+          {data.map(
+            (project, index) =>
+              project[PUBLISHED] === "TRUE" && (
+                <Col xs={4} className="py-3">
+                  <ProjectCard project={project} />
                 </Col>
-                {element[IMAGE] ? (
-                  <Col lg={6}>
-                    <StyledImage image={element[IMAGE]}></StyledImage>
-                  </Col>
-                ) : (
-                  ""
-                )}
-              </Row>
-            </StyledPorjectContainer>
-          );
-        }
-      })}
+              )
+          )}
+        </Row>
+      </Container>
       <Footer />
     </>
   );
