@@ -43,7 +43,7 @@ export const Hero = () => {
             humanity… Allah the Almighty never forsakes those people who hold
             within their hearts sincere love for humanity.”
           </div>
-          <div class="body1">
+          <div className="body1">
             <strong>Hazrat Mirza Ghulam Ahmad (A.S.) - Promised Messiah</strong>
           </div>
         </div>

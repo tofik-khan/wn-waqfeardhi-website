@@ -120,7 +120,13 @@ export default function Page() {
           {data.map(
             (project, index) =>
               project[PUBLISHED] === "TRUE" && (
-                <Col lg={4} md={6} xs={12} className="p-3">
+                <Col
+                  lg={4}
+                  md={6}
+                  xs={12}
+                  className="p-3"
+                  key={`ProjectCard-${index}`}
+                >
                   <ProjectCard project={project} />
                 </Col>
               )

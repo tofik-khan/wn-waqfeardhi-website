@@ -20,11 +20,11 @@ export const Navigation = () => {
 
   return (
     <>
-      <StyledNavBar fixed="top" variant="dark" expand="lg">
+      <StyledNavBar fixed="top" variant="dark" expand="lg" className="">
         <Container>
           <Navbar.Brand href="/">
             <div style={{ display: "flex", alignItems: "center" }}>
-              <Image src={WALogo} width={75} />
+              <Image alt="Waqf-e-Ardhi Logo" src={WALogo} width={75} />
             </div>
           </Navbar.Brand>
           <Navbar.Toggle>

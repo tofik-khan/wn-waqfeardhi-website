@@ -37,7 +37,7 @@ export const Subscribe = () => {
         }}
       >
         <h4 style={{ marginBottom: "24px" }}>Get the latest updates</h4>
-        <div class="subscribe-container">
+        <div className="subscribe-container">
           <input
             id={"email"}
             type="email"

@@ -16,18 +16,41 @@ export const Sponsors = () => {
         <Row className="py-5" style={{ marginBottom: "80px" }}>
           <Col>
             <Marquee>
-              <SponsorImage image="/sponsors/amc.png" />
-              <SponsorImage image="/sponsors/amla.png" />
-              <SponsorImage image="/sponsors/amma.jpeg" />
-              <SponsorImage image="/sponsors/ansar.png" />
-              <SponsorImage image="/sponsors/atfal.png" />
-              <SponsorImage image="/sponsors/wn.png" />
-              <SponsorImage image="/sponsors/lajna.png" />
-              <SponsorImage image="/sponsors/awsa.jpeg" />
-              <SponsorImage image="/sponsors/humanity-first.jpeg" />
-              <SponsorImage image="/sponsors/iaaae.png" />
-              <SponsorImage image="/sponsors/amc-usa.png" />
-              <SponsorImage image="/sponsors/wn.png" />
+              <SponsorImage image="/sponsors/amc.png" alt="" />
+              <SponsorImage
+                image="/sponsors/amla.png"
+                alt="Ahmadiyya Muslim Lawyers Association"
+              />
+              <SponsorImage
+                image="/sponsors/amma.jpeg"
+                alt="Ahmadiyya Muslim Medical Association"
+              />
+              <SponsorImage
+                image="/sponsors/ansar.png"
+                alt="Majlis Ansar-ul-Allah USA"
+              />
+              <SponsorImage
+                image="/sponsors/atfal.png"
+                alt="Majlis Atfal-ul-Ahmadiyya USA"
+              />
+              <SponsorImage image="/sponsors/wn.png" alt="Waqf-e-Nau" />
+              <SponsorImage image="/sponsors/lajna.png" alt="Lajna Imaullah" />
+              <SponsorImage
+                image="/sponsors/awsa.jpeg"
+                alt="Ahmadi Women Scientist Association"
+              />
+              <SponsorImage
+                image="/sponsors/humanity-first.jpeg"
+                alt="Humanity First"
+              />
+              <SponsorImage
+                image="/sponsors/iaaae.png"
+                alt="International Association of Ahmadi Architects and Engineers"
+              />
+              <SponsorImage
+                image="/sponsors/amc-usa.png"
+                alt="Ahmadiyya Movement in Islam"
+              />
             </Marquee>
           </Col>
         </Row>

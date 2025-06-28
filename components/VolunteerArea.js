@@ -1,6 +1,5 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { Heading3, Paragraph } from "./Text";
 
 const StyledIconContainer = styled.div`
   margin-bottom: 20px;
@@ -14,6 +13,7 @@ export default function VolunteerArea({ image, heading, content }) {
       <StyledIconContainer>
         <Image
           src={image}
+          alt={heading}
           fill
           style={{
             objectFit: "contain",

@@ -14,9 +14,14 @@ export const VolunteerAreas = () => {
         <Container>
           <Row className="justify-content-center">
             {volunteerAreas.map((area, index) => (
-              <Col xs={12} md={6} lg={4} style={{ marginBlockEnd: "80px" }}>
+              <Col
+                xs={12}
+                md={6}
+                lg={4}
+                style={{ marginBlockEnd: "80px" }}
+                key={`Volunteer-Areas-${index}`}
+              >
                 <VolunteerArea
-                  key={index}
                   image={area.image}
                   heading={area.heading}
                   content={area.content}

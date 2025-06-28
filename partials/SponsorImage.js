@@ -8,12 +8,14 @@ const StyledIconContainer = styled.div`
   margin-right: 75px;
 `;
 
-export default function SponsorImage({ image }) {
+export default function SponsorImage({ image, alt }) {
   return (
     <>
       <StyledIconContainer>
         <Image
           src={image}
+          alt={alt || ""}
+          sizes="(max-width: 150px)"
           fill
           style={{
             objectFit: "contain",
