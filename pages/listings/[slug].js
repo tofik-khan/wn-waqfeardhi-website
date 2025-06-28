@@ -1,9 +1,7 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+import { Container, Row, Col, Modal } from "react-bootstrap";
 
 import styled from "styled-components";
 
@@ -25,9 +23,10 @@ import ToggleSwitch from "/components/ToggleSwitch";
 import TextArea from "/components/TextArea";
 import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
-import { Modal } from "react-bootstrap";
 import { Heading1, Paragraph } from "../../components/Text";
 import { convertToHTMLTags } from "../../helpers/format-text";
+import { ClipLoader } from "react-spinners";
+import { GeoAlt, Globe, Pin } from "react-bootstrap-icons";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -51,6 +50,31 @@ const StyledSubmittedContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const StyledHeroContainer = styled.div`
+  padding: 120px;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+  }
+`;
+
+const StyledProjectInfoContainer = styled.div`
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 export default function Page({ dataSlug }) {
@@ -98,12 +122,13 @@ export default function Page({ dataSlug }) {
       <>
         <Navigation />
         <StyledSubmittedContainer>
-          <Heading1 align={"center"} className="py-5">
-            Loading ...
-          </Heading1>
-          <Paragraph align={"center"} className={"px-2"}>
-            Please wait while we load all the information
-          </Paragraph>
+          <ClipLoader
+            color={"#fa541c"}
+            loading={true}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
         </StyledSubmittedContainer>
         <Footer />
       </>
@@ -117,15 +142,15 @@ export default function Page({ dataSlug }) {
       <>
         <Navigation />
         <StyledSubmittedContainer>
-          <Heading1 align={"center"} className="py-5">
+          <h2 align={"center"} className="py-5">
             Oops! Looks like we don't have that project
-          </Heading1>
-          <Paragraph align={"center"} className={"px-2"}>
+          </h2>
+          <p className="body1" style={{ fontSize: "20px" }}>
             To find all avaiable projects, please use our listings page
-          </Paragraph>
-          <Button variant="primary" href="/listings">
+          </p>
+          <a className="button primary" href="/listings">
             Available Projects
-          </Button>
+          </a>
         </StyledSubmittedContainer>
         <Footer />
       </>
@@ -136,6 +161,42 @@ export default function Page({ dataSlug }) {
     return (
       <>
         <Navigation />
+        <StyledHeroContainer>
+          <div>
+            <h2 style={{ color: "white" }}>{selectedListing[TITLE]}</h2>
+            <StyledProjectInfoContainer>
+              <p
+                className="body1"
+                style={{
+                  color: "#CCCCCC",
+                  verticalAlign: "middle",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Globe />
+                &nbsp; &nbsp;
+                {selectedListing[SPONSOR]}
+              </p>
+              <p
+                className="body1"
+                style={{
+                  color: "#CCCCCC",
+                  verticalAlign: "middle",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <GeoAlt />
+                &nbsp; &nbsp;
+                {selectedListing[SUBTITLE]}
+              </p>
+            </StyledProjectInfoContainer>
+          </div>
+          <button className="button primary" style={{ width: "300px" }}>
+            Apply Now
+          </button>
+        </StyledHeroContainer>
         <Container className="py-3">
           <Row className="justify-content-center">
             <Col md={6}>

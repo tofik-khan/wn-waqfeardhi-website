@@ -57,12 +57,15 @@ h6,
 }
 
 .button {
+  text-decoration: none;
+  border: none;
   font-family: "Public Sans";
   font-weight: 700;
   font-size: 15px;
   line-height: 26px;
   text-decoration: none;
-  padding: 16px 16px;
+  padding: 16px;
+  border-radius: 8px;
 }
 
 .line-clamp-2 {
@@ -78,11 +81,14 @@ h6,
   background-color: #fa541c;
   color: white;
 }
+.primary:hover {
+  background-color: #d53f00;
+  color: white;
+}
 
 .inherit {
   color: white;
   background-color: #1c252e;
-  border-radius: 8px;
 }
 .inherit:hover {
   color: white;
