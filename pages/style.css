@@ -109,11 +109,33 @@ h5,
   h2 {
     font-size: 36px;
   }
+  .subscribe-container {
+    width: 475px;
+  }
+  .subscribe-container input {
+    font-size: 16px;
+  }
+  .subscribe-container button {
+    font-size: 20px;
+  }
 }
 
 /* Mobile Styles */
 @media screen and (max-width: 500px) {
   h2 {
     font-size: 32px;
+  }
+  .subscribe-container {
+    width: unset;
+    border-radius: 8px;
+  }
+  .subscribe-container button {
+    font-size: 16px;
+    padding: 4px 40px;
+    border-radius: 12px;
+  }
+  .subscribe-container input {
+    padding: 0px 40px;
+    font-size: 12px;
   }
 }
