@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
-import WNlogomark from "/public/images/wn-logo.png";
-import TAQWAlogomark from "/public/images/taqwa-logomark.png";
-import Button from "../components/Button";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import WALogo from "/public/images/waqfeardhi-logo.png";
 
 const StyledNavBar = styled(Navbar)`
   background-color: #f4f6f8;
@@ -14,7 +12,7 @@ const StyledNavBar = styled(Navbar)`
 `;
 
 const StyledSpacer = styled.div`
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 `;
 
 export const Navigation = () => {
@@ -24,7 +22,11 @@ export const Navigation = () => {
     <>
       <StyledNavBar fixed="top" variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/"></Navbar.Brand>
+          <Navbar.Brand href="/">
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <Image src={WALogo} width={75} />
+            </div>
+          </Navbar.Brand>
           <Navbar.Toggle>
             <Hamburger color="#1C252E" toggled={isOpen} toggle={setOpen} />
           </Navbar.Toggle>
