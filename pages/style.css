@@ -178,6 +178,9 @@ h6,
   h2 {
     font-size: 32px;
   }
+  .body1 {
+    font-size: 12px;
+  }
   .subscribe-container {
     width: unset;
     border-radius: 8px;
