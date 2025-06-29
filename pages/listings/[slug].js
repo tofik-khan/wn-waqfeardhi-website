@@ -214,7 +214,7 @@ export default function Page({ dataSlug }) {
                   gap: "8px",
                 }}
               >
-                <GeoAlt />
+                <GeoAlt size={"24px"} />
                 {selectedListing[SUBTITLE]}
               </p>
             </StyledProjectInfoContainer>
