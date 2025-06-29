@@ -23,8 +23,11 @@ export const Navigation = () => {
       <StyledNavBar fixed="top" variant="dark" expand="lg" className="">
         <Container>
           <Navbar.Brand href="/">
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <Image alt="Waqf-e-Ardhi Logo" src={WALogo} width={75} />
+              <h2 style={{ color: "#d53f00", fontSize: "20px" }}>
+                Waqf-e-Ardhi
+              </h2>
             </div>
           </Navbar.Brand>
           <Navbar.Toggle>
