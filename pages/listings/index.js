@@ -3,9 +3,7 @@ import styled from "styled-components";
 import {
   TITLE,
   SUBTITLE,
-  DESCRIPTION,
   SLUG,
-  IMAGE,
   DURATION,
   AUDIENCE,
   PUBLISHED,
@@ -18,6 +16,7 @@ import { useState, useEffect } from "react";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { Clock, GeoAlt, Person } from "react-bootstrap-icons";
 import Link from "next/link";
+import { ClipLoader } from "react-spinners";
 
 const StyledBadgeContainer = styled.div`
   height: 72px;
@@ -36,6 +35,14 @@ const StyledBadge = styled.div`
   font-family: "Public Sans";
   font-weight: 500;
   font-size: 15px;
+`;
+
+const StyledContainer = styled.div`
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ProjectCard = ({ project }) => {
@@ -99,14 +106,24 @@ export default function Page() {
   useEffect(() => {
     fetch("/api/pull-listings")
       .then((response) => response.json())
-      .then((response) => updateData(response.data.reverse()));
-    updateLoaded(true);
+      .then((response) => updateData(response.data.reverse()))
+      .then(() => updateLoaded(true));
   }, []);
 
   if (!loaded) {
     return (
       <>
-        <h1>Loading...</h1>
+        <Navigation />
+        <StyledContainer>
+          <ClipLoader
+            color={"#fa541c"}
+            loading={true}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </StyledContainer>
+        <Footer />
       </>
     );
   }
