@@ -46,6 +46,21 @@ export const Hero = () => {
           <div className="body1">
             <strong>Hazrat Mirza Ghulam Ahmad (A.S.) - Promised Messiah</strong>
           </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "24px",
+            }}
+          >
+            <a
+              style={{ width: "300px", textAlign: "center" }}
+              className="button primary"
+              href="/listings"
+            >
+              Browse Projects
+            </a>
+          </div>
         </div>
       </StyledContainer>
     </>
