@@ -63,6 +63,7 @@ const StyledHeroContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 16px;
+    padding: 80px 40px;
   }
 `;
 

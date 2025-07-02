@@ -3,7 +3,7 @@
 h2,
 .h2 {
   font-family: "Barlow";
-  font-weight: 800;
+  font-weight: 800 !important;
   font-size: 48px;
   line-height: 64px;
   color: #1c252e;
