@@ -1,4 +1,5 @@
 import { Col, Container, Row } from "react-bootstrap";
+import CountUp from "react-countup";
 import styled from "styled-components";
 
 const InfoImageContainer = styled.div`
@@ -32,7 +33,12 @@ const Info = ({ image, color, value, subtitle }) => {
           <InfoImage image={image} />
         </InfoImageContainer>
         <div className="h2" style={{ textAlign: "center", marginBottom: 0 }}>
-          {value}
+          <CountUp
+            end={value}
+            formattingFn={(n) =>
+              n > 1000 ? `${(n / 1000).toFixed(1)}K+` : `${n}+`
+            }
+          />
         </div>
         <div className="body1" style={{ textAlign: "center" }}>
           {subtitle}
@@ -63,7 +69,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/projectInfographic.svg"}
                 color={"#FA541C3D"}
-                value={"50+"}
+                value={50}
                 subtitle={"Projects"}
               />
             </Col>
@@ -76,7 +82,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/applicationInfographic.svg"}
                 color={"#00B8D93D"}
-                value={"450+"}
+                value={450}
                 subtitle={"Applications"}
               />
             </Col>
@@ -89,7 +95,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/sponsorsInfographic.svg"}
                 color={"#FFAB003D"}
-                value={"25+"}
+                value={25}
                 subtitle={"Sponsors"}
               />
             </Col>
@@ -102,7 +108,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/hoursInfographic.svg"}
                 color={"#22C55E3D"}
-                value={"1K+"}
+                value={2500}
                 subtitle={"Hours Worked"}
               />
             </Col>
