@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Hamburger from "hamburger-react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import WALogo from "/public/images/waqfeardhi-logo.png";
+import WNLogo from "/public/images/wn-logo.png";
 
 const StyledNavBar = styled(Navbar)`
   background-color: #f4f6f8;
@@ -24,10 +24,13 @@ export const Navigation = () => {
         <Container>
           <Navbar.Brand href="/">
             <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-              <Image alt="Waqf-e-Ardhi Logo" src={WALogo} width={75} />
-              <h2 style={{ color: "#d53f00", fontSize: "20px" }}>
-                Waqf-e-Ardhi
-              </h2>
+              <Image alt="Waqf-e-Ardhi Logo" src={WNLogo} width={75} />
+              <div>
+                <h2 style={{ fontSize: "20px", lineHeight: "24px", margin: 0 }}>
+                  Waqf-e-Ardhi
+                </h2>
+                <div className={"body2"}>By Waqf-e-Nau USA</div>
+              </div>
             </div>
           </Navbar.Brand>
           <Navbar.Toggle>
