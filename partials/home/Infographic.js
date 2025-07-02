@@ -108,7 +108,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/hoursInfographic.svg"}
                 color={"#22C55E3D"}
-                value={2500}
+                value={5000}
                 subtitle={"Hours Worked"}
               />
             </Col>
