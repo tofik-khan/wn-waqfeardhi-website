@@ -20,7 +20,7 @@ const InfoImage = styled.div`
 `;
 
 const Info = ({ image, color, value, subtitle }) => {
-  const delayBetween = 5000;
+  const delayBetween = 15000;
   const [shouldCount, setShouldCount] = useState(true);
   const [counterKey, setCounterKey] = useState(0);
 

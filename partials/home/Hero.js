@@ -2,7 +2,10 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  padding: 80px;
+  padding-top: 80px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 0px;
   margin: auto;
   display: flex;
   justify-content: space-evenly;
