@@ -1,6 +1,7 @@
 import { Col, Container, Row } from "react-bootstrap";
 import CountUp from "react-countup";
 import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 const InfoImageContainer = styled.div`
   width: 160px;
@@ -19,6 +20,26 @@ const InfoImage = styled.div`
 `;
 
 const Info = ({ image, color, value, subtitle }) => {
+  const delayBetween = 5000;
+  const [shouldCount, setShouldCount] = useState(true);
+  const [counterKey, setCounterKey] = useState(0);
+
+  useEffect(() => {
+    let delayTimeout;
+    if (!shouldCount) {
+      delayTimeout = setTimeout(() => {
+        setCounterKey((prev) => prev + 1); // Reset counter
+        setShouldCount(true); // Start counting again
+      }, delayBetween);
+    }
+
+    return () => clearTimeout(delayTimeout); // Cleanup timeout
+  });
+
+  const handleEnd = () => {
+    setShouldCount(false); // Pause before restarting
+  };
+
   return (
     <>
       <div
@@ -33,12 +54,21 @@ const Info = ({ image, color, value, subtitle }) => {
           <InfoImage image={image} />
         </InfoImageContainer>
         <div className="h2" style={{ textAlign: "center", marginBottom: 0 }}>
-          <CountUp
-            end={value}
-            formattingFn={(n) =>
-              n > 1000 ? `${(n / 1000).toFixed(1)}K+` : `${n}+`
-            }
-          />
+          {shouldCount ? (
+            <CountUp
+              key={counterKey}
+              start={0}
+              end={value}
+              onEnd={handleEnd}
+              formattingFn={(n) =>
+                n > 1000 ? `${(n / 1000).toFixed(1)}K+` : `${n}+`
+              }
+            />
+          ) : (
+            <span>
+              {value > 1000 ? `${(value / 1000).toFixed(1)}K+` : `${value}+`}
+            </span> // Hold final value while waiting
+          )}
         </div>
         <div className="body1" style={{ textAlign: "center" }}>
           {subtitle}

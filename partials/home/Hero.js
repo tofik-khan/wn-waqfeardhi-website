@@ -35,7 +35,7 @@ export const Hero = () => {
         <HeroImage />
         <div>
           <h2 style={{ marginBottom: "24px" }}>Waqf-e-Ardhi</h2>
-          <div className="body1" style={{ maxWidth: "600px" }}>
+          <div className="body1" style={{ maxWidth: "850px" }}>
             “Sincerity towards others and love for humanity is a part of faith.
             The definition of the 'highest moral values' is that sincere
             kindness and sympathy be professed towards all humanity without any
@@ -45,21 +45,6 @@ export const Hero = () => {
           </div>
           <div className="body1">
             <strong>Hazrat Mirza Ghulam Ahmad (A.S.) - Promised Messiah</strong>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: "24px",
-            }}
-          >
-            <a
-              style={{ width: "300px", textAlign: "center" }}
-              className="button primary"
-              href="/listings"
-            >
-              Browse Projects
-            </a>
           </div>
         </div>
       </StyledContainer>

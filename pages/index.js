@@ -10,13 +10,8 @@ import Footer from "../partials/Footer";
 export default function Page() {
   return (
     <>
-      <Navigation />
       <Hero />
       <Infographic />
-      <VolunteerAreas />
-      <Sponsors />
-      <Subscribe />
-      <Footer />
     </>
   );
 }
