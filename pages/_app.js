@@ -1,5 +1,5 @@
-
 import "bootstrap/dist/css/bootstrap.css";
+import "./style.css";
 import { useEffect } from "react";
 import { SSRProvider } from "react-bootstrap";
 

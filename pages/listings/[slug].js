@@ -1,9 +1,7 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+import { Container, Row, Col, Modal } from "react-bootstrap";
 
 import styled from "styled-components";
 
@@ -25,9 +23,10 @@ import ToggleSwitch from "/components/ToggleSwitch";
 import TextArea from "/components/TextArea";
 import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
-import { Modal } from "react-bootstrap";
 import { Heading1, Paragraph } from "../../components/Text";
 import { convertToHTMLTags } from "../../helpers/format-text";
+import { ClipLoader } from "react-spinners";
+import { Clock, GeoAlt, Globe, Person, Pin } from "react-bootstrap-icons";
 
 const StyledContainer = styled(Container)`
   width: 700px;
@@ -51,6 +50,58 @@ const StyledSubmittedContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+const StyledHeroContainer = styled.div`
+  padding: 120px;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    padding: 80px 40px;
+  }
+`;
+
+const StyledProjectInfoContainer = styled.div`
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+const StyledProjectDescriptionContainer = styled.div`
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 64px;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column-reverse;
+    padding: 30px;
+  }
+`;
+
+const StyledProjectSidebar = styled.div`
+  min-width: 300px;
+`;
+
+const StyledProjectFormContainer = styled.div`
+  padding-left: 80px;
+  padding-right: 80px;
+
+  @media screen and (max-width: 500px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `;
 
 export default function Page({ dataSlug }) {
@@ -98,12 +149,13 @@ export default function Page({ dataSlug }) {
       <>
         <Navigation />
         <StyledSubmittedContainer>
-          <Heading1 align={"center"} className="py-5">
-            Loading ...
-          </Heading1>
-          <Paragraph align={"center"} className={"px-2"}>
-            Please wait while we load all the information
-          </Paragraph>
+          <ClipLoader
+            color={"#fa541c"}
+            loading={true}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
         </StyledSubmittedContainer>
         <Footer />
       </>
@@ -117,15 +169,15 @@ export default function Page({ dataSlug }) {
       <>
         <Navigation />
         <StyledSubmittedContainer>
-          <Heading1 align={"center"} className="py-5">
+          <h2 align={"center"} className="py-5">
             Oops! Looks like we don't have that project
-          </Heading1>
-          <Paragraph align={"center"} className={"px-2"}>
+          </h2>
+          <p className="body1" style={{ fontSize: "20px" }}>
             To find all avaiable projects, please use our listings page
-          </Paragraph>
-          <Button variant="primary" href="/listings">
+          </p>
+          <a className="button primary" href="/listings">
             Available Projects
-          </Button>
+          </a>
         </StyledSubmittedContainer>
         <Footer />
       </>
@@ -136,190 +188,211 @@ export default function Page({ dataSlug }) {
     return (
       <>
         <Navigation />
-        <Container className="py-3">
-          <Row className="justify-content-center">
-            <Col md={6}>
-              <StyledImage url={selectedListing[IMAGE]} />
-            </Col>
-            <Col md={6}>
-              <Heading1 className="py-5 text-center">
-                {selectedListing[TITLE]}
-              </Heading1>
-              <Paragraph className="text-center">
-                <strong>Location: </strong>
-                {selectedListing[SUBTITLE]}
-              </Paragraph>
-              <Paragraph className="text-center">
-                <strong>Sponsor: </strong>
-                {selectedListing[SPONSOR]}
-              </Paragraph>
-              <Row className="justify-content-center">
-                <Col md={"auto"}>
-                  <Paragraph>
-                    <strong>Duration: </strong>
-                    {selectedListing[DURATION]}
-                  </Paragraph>
-                </Col>
-                <Col md={"auto"}>
-                  <Paragraph>
-                    <strong>Audience: </strong>
-                    {selectedListing[AUDIENCE]}
-                  </Paragraph>
-                </Col>
-                <Col md={10}>
-                  <Paragraph>
-                    {convertToHTMLTags(selectedListing[DESCRIPTION])}
-                  </Paragraph>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row>
-            <Col></Col>
-          </Row>
-        </Container>
-        <Container>
-          <Row className="justify-content-center"></Row>
-        </Container>
-        <StyledContainer className="py-5">
-          <Row>
-            <h2>Submit Application</h2>
-          </Row>
-          <Row className="py-2">
-            <Col sm={6}>
-              <TextInput
-                label="First Name"
-                isError={checkFirstnameError(formData)}
-                errorMessage="This field cannot be left blank"
-                onChange={(event) =>
-                  updateFormData({ ...formData, firstname: event.target.value })
-                }
-                required
-              />
-            </Col>
-            <Col sm={6}>
-              <TextInput
-                label="Last Name"
-                isError={checkLastnameError(formData)}
-                errorMessage="This field cannot be left blank"
-                onChange={(event) =>
-                  updateFormData({ ...formData, lastname: event.target.value })
-                }
-                required
-              />
-            </Col>
-          </Row>
-          <Row className="py-2">
-            <Col sm={6}>
-              <TextInput
-                label="Email"
-                isError={false} //Todo: Figure out how to determine if email is valid on submit?
-                errorMessage="This must be a valid email"
-                onChange={(event) =>
-                  updateFormData({ ...formData, email: event.target.value })
-                }
-                required
-              />
-            </Col>
-            <Col sm={6}>
-              <Dropdown
-                label="Jammat"
-                options={jammatOptions}
-                defaultValue={false}
-                onChange={(option) =>
-                  updateFormData({ ...formData, jammat: option.value })
-                }
-              />
-            </Col>
-          </Row>
-          <Row className="py-2 align-items-center">
-            <Col sm={6}>
-              <Dropdown
-                label="Auxiliary"
-                options={auxiliaryOptions}
-                defaultValue={false}
-                onChange={(option) =>
-                  updateFormData({ ...formData, aux: option.value })
-                }
-              />
-            </Col>
-            <Col sm={6}>
-              <TextInput
-                label="Phone Number"
-                isError={false} //Todo: Figure out how to determine if email is valid on submit?
-                errorMessage="This must be a valid email"
-                onChange={(event) =>
-                  updateFormData({ ...formData, phone: event.target.value })
-                }
-                required
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col sm={6}>
-              <TextInput
-                label="Member Code"
-                type="number"
-                isError={
-                  formData.membercode !== null &&
-                  !new RegExp(/[0-9]+/).test(formData.membercode)
-                }
-                errorMessage="The member code cannot be blank and cannot contain non-numeric values"
-                onChange={(event) =>
-                  updateFormData({
-                    ...formData,
-                    membercode: event.target.value,
-                  })
-                }
-                required
-              />
-            </Col>
-          </Row>
-          <Row className="py-2 justify-content-center">
-            <Col className="pt-4">
-              <ToggleSwitch
-                label="Are you part of the Waqf-e-Nau Scheme?"
-                onChange={(event) =>
-                  updateFormData({
-                    ...formData,
-                    isWaqfeNau: event.target.checked,
-                  })
-                }
-              />
-            </Col>
-          </Row>
-          <Row className="py-2 justify-content-center">
-            <Col sm={12}>
-              <TextArea
-                label="Share any relevant experience or comments"
-                onChange={(event) =>
-                  updateFormData({ ...formData, comment: event.target.value })
-                }
-              />
-            </Col>
-          </Row>
-          <Row className="py-2 justify-content-center">
-            <Col md={3}>
-              <Button
-                variant="primary"
-                onClick={async () => {
-                  if (submitForm(formData, slug, updateShowModal)) {
-                    updateScreen("SUBMITTED");
-                  }
+        <StyledHeroContainer>
+          <div>
+            <h2 style={{ color: "white" }}>{selectedListing[TITLE]}</h2>
+            <StyledProjectInfoContainer>
+              <p
+                className="body1"
+                style={{
+                  color: "#CCCCCC",
+                  verticalAlign: "middle",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
                 }}
               >
-                Submit
-              </Button>
-            </Col>
-            <Col md={3}>
-              <Button variant="secondary" href="/listings">
-                Cancel
-              </Button>
-            </Col>
-          </Row>
-        </StyledContainer>
+                <Globe size={"24px"} />
+                {selectedListing[SPONSOR]}
+              </p>
+              <p
+                className="body1"
+                style={{
+                  color: "#CCCCCC",
+                  verticalAlign: "middle",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                }}
+              >
+                <GeoAlt size={"24px"} />
+                {selectedListing[SUBTITLE]}
+              </p>
+            </StyledProjectInfoContainer>
+          </div>
+          <button
+            onClick={() => {
+              const targetElement = document.getElementById("submit-form");
+              if (targetElement) {
+                targetElement.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+            className="button primary"
+            style={{ width: "300px" }}
+          >
+            Apply Now
+          </button>
+        </StyledHeroContainer>
+        <StyledProjectDescriptionContainer>
+          <div>
+            <h5>Project Description</h5>
+            <p className={"body1"} style={{ color: "#1C252E" }}>
+              {convertToHTMLTags(selectedListing[DESCRIPTION])}
+            </p>
+            <hr
+              style={{ color: "#919EAB", marginBlock: "40px" }}
+              id={"submit-form"}
+            />
+          </div>
+          <StyledProjectSidebar>
+            <div className="paper">
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "16px" }}
+              >
+                <Person size={"20px"} />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span className="subtitle2">Audience</span>
+                  <p className="body1" style={{ margin: 0 }}>
+                    {selectedListing[AUDIENCE]}
+                  </p>
+                </div>
+              </div>
+              <div
+                style={{ display: "flex", alignItems: "center", gap: "16px" }}
+              >
+                <Clock size={"20px"} />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
+                  <span className="subtitle2">Duration</span>
+                  <p className="body1" style={{ margin: 0 }}>
+                    {selectedListing[DURATION]}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </StyledProjectSidebar>
+        </StyledProjectDescriptionContainer>
+        <StyledProjectFormContainer>
+          <h3 style={{ marginBottom: "24px" }}>Apply for this project</h3>
+          <TextInput
+            label="First Name"
+            isError={checkFirstnameError(formData)}
+            errorMessage="This field cannot be left blank"
+            onChange={(event) =>
+              updateFormData({ ...formData, firstname: event.target.value })
+            }
+            width={320}
+            required
+          />
+          <TextInput
+            label="Last Name"
+            isError={checkLastnameError(formData)}
+            errorMessage="This field cannot be left blank"
+            onChange={(event) =>
+              updateFormData({ ...formData, lastname: event.target.value })
+            }
+            width={320}
+            required
+          />
+          <TextInput
+            label="Email"
+            isError={false} //Todo: Figure out how to determine if email is valid on submit?
+            errorMessage="This must be a valid email"
+            onChange={(event) =>
+              updateFormData({ ...formData, email: event.target.value })
+            }
+            width={320}
+            required
+          />
+          <div style={{ width: "320px" }}>
+            <Dropdown
+              label="Jammat"
+              options={jammatOptions}
+              defaultValue={false}
+              onChange={(option) =>
+                updateFormData({ ...formData, jammat: option.value })
+              }
+            />
+          </div>
+          <div style={{ width: "320px" }}>
+            <Dropdown
+              label="Auxiliary"
+              options={auxiliaryOptions}
+              defaultValue={false}
+              onChange={(option) =>
+                updateFormData({ ...formData, aux: option.value })
+              }
+            />
+          </div>
+          <TextInput
+            label="Phone Number"
+            isError={false}
+            errorMessage="This must be a valid phone number"
+            onChange={(event) =>
+              updateFormData({ ...formData, phone: event.target.value })
+            }
+            width={320}
+            required
+          />
+          <TextInput
+            label="Member Code"
+            type="number"
+            isError={
+              formData.membercode !== null &&
+              !new RegExp(/[0-9]+/).test(formData.membercode)
+            }
+            errorMessage="The member code cannot be blank and cannot contain non-numeric values"
+            onChange={(event) =>
+              updateFormData({
+                ...formData,
+                membercode: event.target.value,
+              })
+            }
+            width={320}
+            required
+          />
+          <ToggleSwitch
+            label="Are you part of the Waqf-e-Nau Scheme?"
+            onChange={(event) =>
+              updateFormData({
+                ...formData,
+                isWaqfeNau: event.target.checked,
+              })
+            }
+          />
+          <TextArea
+            label="Share any relevant experience or comments"
+            onChange={(event) =>
+              updateFormData({ ...formData, comment: event.target.value })
+            }
+            width={400}
+          />
+          <button
+            className="button primary"
+            variant="primary"
+            onClick={async () => {
+              if (submitForm(formData, slug, updateShowModal)) {
+                updateScreen("SUBMITTED");
+              }
+            }}
+          >
+            Submit
+          </button>
+        </StyledProjectFormContainer>
         <Modal
           size="lg"
           show={showModal}
