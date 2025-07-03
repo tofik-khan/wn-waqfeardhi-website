@@ -29,7 +29,9 @@ export const Navigation = () => {
                 <h2 style={{ fontSize: "20px", lineHeight: "24px", margin: 0 }}>
                   Waqf-e-Ardhi
                 </h2>
-                <div className={"body2"}>By Waqf-e-Nau USA</div>
+                <div style={{ fontSize: "12px" }} className={"body2"}>
+                  For Waqf-e-Nau / By Waqf-e-Nau
+                </div>
               </div>
             </div>
           </Navbar.Brand>
