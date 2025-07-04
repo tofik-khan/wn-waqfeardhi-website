@@ -37,8 +37,18 @@ export const Hero = () => {
       <StyledContainer>
         <HeroImage />
         <div>
-          <h2 style={{ marginBottom: "24px" }}>Waqf-e-Ardhi</h2>
-          <div className="body1" style={{ maxWidth: "850px" }}>
+          <h2>Waqf-e-Ardhi</h2>
+          <div
+            className="body1"
+            style={{
+              marginBottom: "24px",
+              marginTop: "24px",
+              fontSize: "32px",
+            }}
+          >
+            <strong>For Waqf-e-Nau / By Waqf-e-Nau</strong>
+          </div>
+          <div className="body1" style={{ maxWidth: "900px" }}>
             “Sincerity towards others and love for humanity is a part of faith.
             The definition of the 'highest moral values' is that sincere
             kindness and sympathy be professed towards all humanity without any
