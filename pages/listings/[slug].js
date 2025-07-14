@@ -54,7 +54,10 @@ const StyledSubmittedContainer = styled.div`
 
 const StyledHeroContainer = styled.div`
   padding: 120px;
-  background-color: #333333;
+  background: url("${(props) => props.url}");
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 2000px #333333aa;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -188,7 +191,7 @@ export default function Page({ dataSlug }) {
     return (
       <>
         <Navigation />
-        <StyledHeroContainer>
+        <StyledHeroContainer url={selectedListing[IMAGE]}>
           <div>
             <h2 style={{ color: "white" }}>{selectedListing[TITLE]}</h2>
             <StyledProjectInfoContainer>
