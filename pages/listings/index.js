@@ -76,7 +76,9 @@ const ProjectCard = ({ project }) => {
               {project[BADGE] && <StyledBadge>{project[BADGE]}</StyledBadge>}
             </StyledBadgeContainer>
             <StyledImage src={project[IMAGE]} />
-            <h6 className="line-clamp-2">{project[TITLE]}</h6>
+            <h6 className="line-clamp-2" style={{ marginTop: "4px" }}>
+              {project[TITLE]}
+            </h6>
             <div className="body2" style={{ color: "#00B8D9" }}>
               {project[SPONSOR]}
             </div>
