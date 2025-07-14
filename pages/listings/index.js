@@ -9,6 +9,7 @@ import {
   PUBLISHED,
   SPONSOR,
   BADGE,
+  IMAGE,
 } from "../api/get-listings-data";
 import { Navigation } from "../../partials/Nav";
 import Footer from "../../partials/Footer";
@@ -23,18 +24,30 @@ const StyledBadgeContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
+  float: left;
+  padding-right: 8px;
+  padding-top: 8px;
 `;
 
 const StyledBadge = styled.div`
   height: fit-content;
   padding: 8px 12px;
-  background-color: #00b8d929;
-  color: #006c9c;
+  background-color: #00b8d9dd;
+  color: white;
   border-radius: 8px;
 
   font-family: "Public Sans";
   font-weight: 500;
   font-size: 15px;
+`;
+
+const StyledImage = styled.div`
+  background: url("${(prop) => prop.src}");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  border-radius: 4px;
 `;
 
 const StyledContainer = styled.div`
@@ -62,6 +75,7 @@ const ProjectCard = ({ project }) => {
             <StyledBadgeContainer>
               {project[BADGE] && <StyledBadge>{project[BADGE]}</StyledBadge>}
             </StyledBadgeContainer>
+            <StyledImage src={project[IMAGE]} />
             <h6 className="line-clamp-2">{project[TITLE]}</h6>
             <div className="body2" style={{ color: "#00B8D9" }}>
               {project[SPONSOR]}
