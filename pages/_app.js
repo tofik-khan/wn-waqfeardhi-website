@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <SSRProvider>
+      <title>Waqf-e-Nau | Serve</title>
       <Component {...pageProps} />
     </SSRProvider>
   );
