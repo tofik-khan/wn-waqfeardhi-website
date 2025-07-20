@@ -18,6 +18,7 @@ import { Card, Container, Row, Col } from "react-bootstrap";
 import { Clock, GeoAlt, Person } from "react-bootstrap-icons";
 import Link from "next/link";
 import { ClipLoader } from "react-spinners";
+import TextInput from "../../components/TextInput";
 
 const StyledBadgeContainer = styled.div`
   height: 72px;
@@ -118,6 +119,7 @@ const ProjectCard = ({ project }) => {
 export default function Page() {
   const [data, updateData] = useState([]);
   const [loaded, updateLoaded] = useState(false);
+  const [search, updateSearch] = useState("");
 
   useEffect(() => {
     fetch("/api/pull-listings")
@@ -144,13 +146,32 @@ export default function Page() {
     );
   }
 
+  const filteredData =
+    search !== ""
+      ? data.filter((project) => JSON.stringify(project).includes(search))
+      : data;
+
   return (
     <>
       <Navigation />
       <h2 className="py-5 text-center">Available Projects</h2>
       <Container>
         <Row>
-          {data.map(
+          <Col xs="auto" style={{ display: "flex", alignItems: "center" }}>
+            Search
+          </Col>
+          <Col>
+            <TextInput
+              onChange={(event) => updateSearch(event.target.value)}
+              width={300}
+            />
+          </Col>
+        </Row>
+      </Container>
+
+      <Container>
+        <Row>
+          {filteredData.map(
             (project, index) =>
               project[PUBLISHED] === "TRUE" && (
                 <Col
