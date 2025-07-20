@@ -54,7 +54,7 @@ function Input({
   type,
 }) {
   return (
-    <>
+    <div>
       {label && (
         <>
           <StyledLabel
@@ -80,7 +80,7 @@ function Input({
           {errorMessage || "There is some issue, check the input"}
         </StyledMessage>
       )}
-    </>
+    </div>
   );
 }
 

@@ -55,7 +55,7 @@ export default function TextArea({
   errorMessage,
 }) {
   return (
-    <>
+    <div>
       {label && (
         <>
           <StyledLabel
@@ -81,6 +81,6 @@ export default function TextArea({
           {errorMessage || "There is some issue, check the input"}
         </StyledMessage>
       )}
-    </>
+    </div>
   );
 }

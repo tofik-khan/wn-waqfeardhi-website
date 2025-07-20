@@ -28,22 +28,6 @@ import { convertToHTMLTags } from "../../helpers/format-text";
 import { ClipLoader } from "react-spinners";
 import { Clock, GeoAlt, Globe, Person, Pin } from "react-bootstrap-icons";
 
-const StyledContainer = styled(Container)`
-  width: 700px;
-
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-const StyledImage = styled.div`
-  width: 100%;
-  height: 400px;
-  background-size: cover;
-  background-image: url(${(props) => props.url});
-  border-radius: 4px;
-`;
-
 const StyledSubmittedContainer = styled.div`
   min-height: calc(100vh - 200px);
   display: flex;
@@ -104,6 +88,17 @@ const StyledProjectFormContainer = styled.div`
   @media screen and (max-width: 500px) {
     padding-left: 30px;
     padding-right: 30px;
+  }
+`;
+
+const StyledFormRow = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
   }
 `;
 
@@ -291,110 +286,138 @@ export default function Page({ dataSlug }) {
         </StyledProjectDescriptionContainer>
         <StyledProjectFormContainer>
           <h3 style={{ marginBottom: "24px" }}>Apply for this project</h3>
-          <TextInput
-            label="First Name"
-            isError={checkFirstnameError(formData)}
-            errorMessage="This field cannot be left blank"
-            onChange={(event) =>
-              updateFormData({ ...formData, firstname: event.target.value })
-            }
-            width={320}
-            required
-          />
-          <TextInput
-            label="Last Name"
-            isError={checkLastnameError(formData)}
-            errorMessage="This field cannot be left blank"
-            onChange={(event) =>
-              updateFormData({ ...formData, lastname: event.target.value })
-            }
-            width={320}
-            required
-          />
-          <TextInput
-            label="Email"
-            isError={false} //Todo: Figure out how to determine if email is valid on submit?
-            errorMessage="This must be a valid email"
-            onChange={(event) =>
-              updateFormData({ ...formData, email: event.target.value })
-            }
-            width={320}
-            required
-          />
-          <div style={{ width: "320px" }}>
-            <Dropdown
-              label="Jammat"
-              options={jammatOptions}
-              defaultValue={false}
-              onChange={(option) =>
-                updateFormData({ ...formData, jammat: option.value })
+          <StyledFormRow>
+            <TextInput
+              label="First Name"
+              isError={checkFirstnameError(formData)}
+              errorMessage="This field cannot be left blank"
+              onChange={(event) =>
+                updateFormData({
+                  ...formData,
+                  firstname: event.target.value,
+                })
+              }
+              width={320}
+              required
+            />
+            <TextInput
+              label="Last Name"
+              isError={checkLastnameError(formData)}
+              errorMessage="This field cannot be left blank"
+              onChange={(event) =>
+                updateFormData({
+                  ...formData,
+                  lastname: event.target.value,
+                })
+              }
+              width={320}
+              required
+            />
+          </StyledFormRow>
+          <StyledFormRow>
+            <TextInput
+              label="Email"
+              isError={false} //Todo: Figure out how to determine if email is valid on submit?
+              errorMessage="This must be a valid email"
+              onChange={(event) =>
+                updateFormData({ ...formData, email: event.target.value })
+              }
+              width={320}
+              required
+            />
+            <div style={{ width: "320px" }}>
+              <Dropdown
+                label="Jammat"
+                options={jammatOptions}
+                defaultValue={false}
+                onChange={(option) =>
+                  updateFormData({ ...formData, jammat: option.value })
+                }
+              />
+            </div>
+          </StyledFormRow>
+          <StyledFormRow>
+            <div style={{ width: "320px" }}>
+              <Dropdown
+                label="Auxiliary"
+                options={auxiliaryOptions}
+                defaultValue={false}
+                onChange={(option) =>
+                  updateFormData({ ...formData, aux: option.value })
+                }
+              />
+            </div>
+            <TextInput
+              label="Phone Number"
+              isError={false}
+              errorMessage="This must be a valid phone number"
+              onChange={(event) =>
+                updateFormData({ ...formData, phone: event.target.value })
+              }
+              width={320}
+              required
+            />
+          </StyledFormRow>
+          <StyledFormRow>
+            <TextInput
+              label="Member Code"
+              type="number"
+              isError={
+                formData.membercode !== null &&
+                !new RegExp(/[0-9]+/).test(formData.membercode)
+              }
+              errorMessage="The member code cannot be blank and cannot contain non-numeric values"
+              onChange={(event) =>
+                updateFormData({
+                  ...formData,
+                  membercode: event.target.value,
+                })
+              }
+              width={320}
+              required
+            />
+            <ToggleSwitch
+              label="Are you part of Waqf-e-Nau Scheme?"
+              onChange={(event) =>
+                updateFormData({
+                  ...formData,
+                  isWaqfeNau: event.target.checked,
+                })
               }
             />
-          </div>
-          <div style={{ width: "320px" }}>
-            <Dropdown
-              label="Auxiliary"
-              options={auxiliaryOptions}
-              defaultValue={false}
-              onChange={(option) =>
-                updateFormData({ ...formData, aux: option.value })
-              }
-            />
-          </div>
-          <TextInput
-            label="Phone Number"
-            isError={false}
-            errorMessage="This must be a valid phone number"
-            onChange={(event) =>
-              updateFormData({ ...formData, phone: event.target.value })
-            }
-            width={320}
-            required
-          />
-          <TextInput
-            label="Member Code"
-            type="number"
-            isError={
-              formData.membercode !== null &&
-              !new RegExp(/[0-9]+/).test(formData.membercode)
-            }
-            errorMessage="The member code cannot be blank and cannot contain non-numeric values"
-            onChange={(event) =>
-              updateFormData({
-                ...formData,
-                membercode: event.target.value,
-              })
-            }
-            width={320}
-            required
-          />
-          <ToggleSwitch
-            label="Are you part of the Waqf-e-Nau Scheme?"
-            onChange={(event) =>
-              updateFormData({
-                ...formData,
-                isWaqfeNau: event.target.checked,
-              })
-            }
-          />
-          <TextArea
-            label="Share any relevant experience or comments"
-            onChange={(event) =>
-              updateFormData({ ...formData, comment: event.target.value })
-            }
-            width={400}
-          />
-          <button
-            className="button primary"
-            variant="primary"
-            onClick={async () => {
-              if (submitForm(formData, slug, updateShowModal)) {
-                updateScreen("SUBMITTED");
-              }
+          </StyledFormRow>
+          <Container>
+            <Row className="justify-content-center">
+              <Col xs={6}>
+                <TextArea
+                  label="Share any relevant experience or comments"
+                  onChange={(event) =>
+                    updateFormData({ ...formData, comment: event.target.value })
+                  }
+                />
+              </Col>
+            </Row>
+          </Container>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
             }}
           >
-            Submit
-          </button>
+            <button
+              className="button primary"
+              variant="primary"
+              onClick={async () => {
+                if (submitForm(formData, slug, updateShowModal)) {
+                  updateScreen("SUBMITTED");
+                }
+              }}
+              style={{ minWidth: "200px" }}
+            >
+              Submit
+            </button>
+          </div>
         </StyledProjectFormContainer>
         <Modal
           size="lg"

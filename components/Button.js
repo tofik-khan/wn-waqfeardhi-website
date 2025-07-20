@@ -18,7 +18,7 @@ const SharedStyle = css`
   }}
 
   background-color: ${(props) =>
-    props.variant === "primary" ? "#6A0136" : "#EEEEEE"};
+    props.variant === "primary" ? "#fa541c" : "#EEEEEE"};
 
   /* Size */
   height: ${(props) => (props.size === "small" ? "30px" : "50px")};
@@ -54,16 +54,24 @@ const SharedStyle = css`
 `;
 
 const StyledButton = styled.button`
-    ${SharedStyle}
-`
+  ${SharedStyle}
+`;
 
 const StyledLink = styled(Link)`
-    ${SharedStyle}
-`
+  ${SharedStyle}
+`;
 
-export default function Button ({variant, children, size, href, onClick}) {
-    if (href) {
-        return <StyledLink href={href} variant={variant} size={size}>{children}</StyledLink>
-    }
-    return <StyledButton variant={variant} size={size} onClick={onClick} type="button">{children}</StyledButton>
+export default function Button({ variant, children, size, href, onClick }) {
+  if (href) {
+    return (
+      <StyledLink href={href} variant={variant} size={size}>
+        {children}
+      </StyledLink>
+    );
+  }
+  return (
+    <StyledButton variant={variant} size={size} onClick={onClick} type="button">
+      {children}
+    </StyledButton>
+  );
 }
