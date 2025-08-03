@@ -258,7 +258,7 @@ export default function Page() {
         <Row>
           <Col xs={12} className="py-2">
             <Dropdown
-              label="On Oct 1st 2024, you will be:"
+              label="On Oct 1st, you will be:"
               options={ageOptions}
               defaultValue={false}
               onChange={(option) => updateAge(option.value)}
