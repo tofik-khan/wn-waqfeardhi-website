@@ -258,7 +258,7 @@ export default function Page() {
         <Row>
           <Col xs={12} className="py-2">
             <Dropdown
-              label="On April 1st 2025, you will be:"
+              label="On April 1st, you will be:"
               options={ageOptions}
               defaultValue={false}
               onChange={(option) => updateAge(option.value)}
@@ -277,7 +277,7 @@ export default function Page() {
           <Col>
             If you were born in <strong>{monthOfBirth ?? "________"}</strong>{" "}
             and will be <strong>{age ?? "_________"} years old</strong> on April
-            1<sup>st</sup> 2025:
+            1<sup>st</sup>:
             <br />
             You should prepare to give the exam on:&nbsp;
             <p
