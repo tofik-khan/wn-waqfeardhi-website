@@ -276,7 +276,7 @@ export default function Page() {
         <Row>
           <Col>
             If you were born in <strong>{monthOfBirth}</strong> and will be{" "}
-            <strong>{age} years old</strong> on October 1<sup>st</sup> 2024:
+            <strong>{age} years old</strong> on October 1<sup>st</sup>:
             <br />
             You should prepare to give the exam on:&nbsp;
             <p
