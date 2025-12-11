@@ -69,7 +69,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/projectInfographic.svg"}
                 color={"#FA541C3D"}
-                value={50}
+                value={60}
                 subtitle={"Projects"}
               />
             </Col>
@@ -82,7 +82,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/applicationInfographic.svg"}
                 color={"#00B8D93D"}
-                value={450}
+                value={560}
                 subtitle={"Applications"}
               />
             </Col>
@@ -95,7 +95,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/sponsorsInfographic.svg"}
                 color={"#FFAB003D"}
-                value={25}
+                value={30}
                 subtitle={"Sponsors"}
               />
             </Col>
@@ -108,7 +108,7 @@ export const Infographic = () => {
               <Info
                 image={"/images/homepage/hoursInfographic.svg"}
                 color={"#22C55E3D"}
-                value={5000}
+                value={7000}
                 subtitle={"Hours Worked"}
               />
             </Col>
