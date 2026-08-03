@@ -6,6 +6,7 @@ import { VolunteerAreas } from "../partials/home/VolunteerAreas";
 import { Sponsors } from "../partials/home/Sponsors";
 import { Subscribe } from "../partials/home/Subscribe";
 import Footer from "../partials/Footer";
+import { Certificate } from "../partials/home/Certificate";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
       <Hero />
       <Infographic />
       <VolunteerAreas />
+      <Certificate />
       <Sponsors />
       <Subscribe />
       <Footer />
