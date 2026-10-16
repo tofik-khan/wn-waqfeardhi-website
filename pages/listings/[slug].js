@@ -127,6 +127,7 @@ export default function Page({ dataSlug }) {
     aux: null,
     phone: null,
     membercode: null,
+    age: null,
   });
   const [screen, updateScreen] = useState("FORM");
 
@@ -376,6 +377,25 @@ export default function Page({ dataSlug }) {
               width={320}
               required
             />
+            <TextInput
+              label="Age"
+              type="number"
+              isError={
+                formData.age !== null &&
+                !new RegExp(/[0-9]+/).test(formData.age)
+              }
+              errorMessage="The age cannot be blank and cannot contain non-numeric values"
+              onChange={(event) =>
+                updateFormData({
+                  ...formData,
+                  age: event.target.value,
+                })
+              }
+              width={320}
+              required
+            />
+          </StyledFormRow>
+          <StyledFormRow>
             <ToggleSwitch
               label="Are you part of Waqf-e-Nau Scheme?"
               onChange={(event) =>
@@ -484,7 +504,7 @@ function checkLastnameError(formData) {
 
 function submitForm(formData, slug, updateShowModal) {
   const hasAllFields = Object.values(formData).every(
-    (value) => value !== "" && value !== null
+    (value) => value !== "" && value !== null,
   );
 
   if (!hasAllFields) {

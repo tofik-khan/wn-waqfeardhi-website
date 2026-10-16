@@ -52,6 +52,7 @@ export default async function handler(req, res) {
             formData.slug,
             timestamp,
             formData.membercode,
+            formData.age,
           ],
         ],
       },
@@ -68,6 +69,7 @@ export default async function handler(req, res) {
       phone: formData.phone,
       slug: formData.slug,
       membercode: formData.membercode,
+      age: formData.age,
       status: "pending",
     };
 
@@ -79,7 +81,7 @@ export default async function handler(req, res) {
 
     await fetch(
       "https://wn-mudir-backend.vercel.app/waqfeardhi/applicants",
-      requestOptions
+      requestOptions,
     )
       .then((response) => response.json())
       .then((response) => console.log(response));
